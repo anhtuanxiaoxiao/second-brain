@@ -804,6 +804,33 @@ body.gal #gbr{display:flex;position:fixed;right:54px;bottom:36px;z-index:12;alig
 /* thẻ giấy kem */
 body.gal .gcp{display:block;position:fixed;z-index:14;background:var(--cream);color:var(--gink);border-radius:2px;box-shadow:0 30px 80px rgba(0,0,0,.5);opacity:0;pointer-events:none;transform:translateY(22px);transition:opacity .5s,transform .7s cubic-bezier(.2,.85,.2,1);font-weight:300}
 body.gal .gcp.on{opacity:1;pointer-events:auto;transform:none}
+#gspot,#gcur{display:none}
+body.gal #gspot{display:block;position:fixed;inset:0;z-index:3;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(460px circle at var(--mx,50%) var(--my,45%),rgba(255,244,225,.09),transparent 70%)}
+@media (pointer:fine){body.gal #gcur{display:block;position:fixed;left:0;top:0;z-index:60;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid rgba(245,241,234,.7);border-radius:50%;pointer-events:none;mix-blend-mode:difference;transition:width .3s,height .3s,margin .3s,background .3s,opacity .3s;opacity:0}
+body.gal #gcur.on{opacity:1}
+body.gal #gcur.hv{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(245,241,234,.18)}}
+.gspark{margin:-8px 0 24px}
+.gspark svg{width:100%;height:auto;display:block;overflow:visible}
+.gspark path.ln{fill:none;stroke:var(--gink);stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;animation:gdraw 1.4s .35s cubic-bezier(.4,0,.2,1) forwards}
+.gspark path.ar{fill:rgba(28,27,25,.07);opacity:0;animation:gfade .9s 1.1s forwards}
+.gspark small{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.07em;text-transform:uppercase;opacity:.55;margin-top:8px}
+@keyframes gdraw{to{stroke-dashoffset:0}}
+@keyframes gfade{to{opacity:1}}
+@keyframes gup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+#gcard.on h2,#gcard.on .gspark,#gcard.on .gcols>div,#gcard.on .glink{animation:gup .75s cubic-bezier(.2,.85,.2,1) both}
+#gcard.on h2{animation-delay:.1s}#gcard.on .gspark{animation-delay:.2s}
+#gcard.on .gcols>div:nth-child(1){animation-delay:.3s}#gcard.on .gcols>div:nth-child(2){animation-delay:.4s}#gcard.on .glink{animation-delay:.5s}
+.gcp .gnav{display:flex;align-items:center;gap:2px}
+.gcp .gnav button{background:none;border:0;cursor:pointer;color:var(--gink);width:30px;height:28px;font:inherit;font-size:16px;opacity:.75;transition:opacity .2s,transform .25s}
+.gcp .gnav button:hover{opacity:1}.gcp .gpv:hover{transform:translateX(-3px)}.gcp .gnx:hover{transform:translateX(3px)}
+.gcp .gh .gi{opacity:.5;margin-left:8px;font-weight:300}
+#gh .gring{width:15px;height:15px;margin-right:8px;vertical-align:-2px;transform:rotate(-90deg)}
+#gh .gring circle{fill:none;stroke:currentColor;stroke-width:2}
+#gh .gring .bg{opacity:.28}
+#gh .gring .fg{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s cubic-bezier(.2,.85,.2,1),stroke .4s}
+#gh .gring.ok .fg{stroke:#ffd98a}
+@media (prefers-reduced-motion:reduce){#gcard.on h2,#gcard.on .gspark,#gcard.on .gcols>div,#gcard.on .glink,.gspark path{animation:none!important;stroke-dashoffset:0;opacity:1}}
+
 .gcp .gh{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
 .gcp .gxx{background:none;border:0;cursor:pointer;color:var(--gink);width:28px;height:28px;display:grid;place-items:center;margin-right:-6px}
 .gcp .gxx svg{width:16px;height:16px}
@@ -3222,18 +3249,31 @@ const galOn = () => document.body.classList.contains("gal");
   $("#ghK").onclick = () => openCmdk();
   { const o = setTab; setTab = (t, fh) => { const v = o(t, fh); try { if (galOn() && !MOB && ready) { hideAll(); pn.classList.add("gopen"); T(tabN[tab] || "Thiên hà"); } } catch (e) {} return v; }; }
   /* thẻ thiên hà khi bấm mắt */
+  function spark(ns) {
+    const N = 12, now = Date.now(), wk = 7 * 864e5, bins = new Array(N).fill(0);
+    ns.forEach(n => { const t = Date.parse(n.date || n.at); if (!isFinite(t)) return; const k = Math.floor((now - t) / wk); if (k >= 0 && k < N) bins[N - 1 - k]++; });
+    const mx = Math.max(1, ...bins), w = 520, h = 48, pts = bins.map((v, i) => [i * (w / (N - 1)), h - 4 - (v / mx) * (h - 12)]);
+    let d = "M" + pts[0][0] + "," + pts[0][1];
+    for (let i = 1; i < pts.length; i++) { const a = pts[i - 1], b = pts[i], m = (a[0] + b[0]) / 2; d += " C" + m + "," + a[1] + " " + m + "," + b[1] + " " + b[0] + "," + b[1]; }
+    const tot = bins.reduce((a, b) => a + b, 0);
+    return `<div class="gspark"><svg viewBox="0 0 ${w} ${h}" aria-hidden="true"><path class="ar" d="${d} L${w},${h} L0,${h}Z"/><path class="ln" d="${d}" pathLength="1"/></svg><small><span>12 tuần qua</span><span>${tot} ý mới</span></small></div>`;
+  }
   function gcard(id) {
     const g = GM[id]; if (!g) return; const ns = allNodes().filter(n => n.g === id), tot = allNodes().length || 1, share = Math.round(ns.length / tot * 100);
     const tg = {}; ns.forEach(n => (n.tags || []).forEach(t => { if (!/^(goal:|tv:|hoi-nao|tu-vung|tieng-minh)/.test(t)) tg[t] = (tg[t] || 0) + 1; }));
     const top = Object.entries(tg).sort((a, b) => b[1] - a[1]).slice(0, 4).map(x => x[0]);
     const rec = [...ns].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 3);
     const c = $("#gcard");
-    c.innerHTML = `<div class="gh"><span>Thiên hà</span><button class="gxx" aria-label="Đóng"><svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M2 2l12 12M14 2 2 14"/></svg></button></div>
-    <h2>${esc(g.name)}: ${ns.length} điểm sáng, chiếm ${share}% bộ não của anh.</h2>
+    const gi = Math.max(0, G.findIndex(q => q.id === id)), gn = G.length; window.__galCur = id;
+    c.innerHTML = `<div class="gh"><span>Thiên hà<span class="gi">${String(gi + 1).padStart(2, "0")} / ${String(gn).padStart(2, "0")}</span></span><span class="gnav"><button class="gpv" aria-label="Thiên hà trước">←</button><button class="gnx" aria-label="Thiên hà sau">→</button><button class="gxx" aria-label="Đóng"><svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M2 2l12 12M14 2 2 14"/></svg></button></span></div>
+    <h2>${esc(g.name)}: <span class="gcn" data-c="${ns.length}">${ns.length}</span> điểm sáng, chiếm ${share}% bộ não của anh.</h2>${spark(ns)}
     <div class="gcols"><div><p>${esc(g.hint)}.</p>${top.length ? `<p>Chủ đề nổi bật: ${top.map(esc).join(", ")}.</p>` : ""}</div>
     <div>${rec.length ? rec.map(n => `<a data-n="${esc(n.id)}">${esc((n.title || "").slice(0, 62))}<small>${esc(n.date || "")}</small></a>`).join("") : "<p>Chưa có ý nào ở đây.</p>"}</div></div>
     <a class="glink"><span>Xem thêm</span><b>Mở ý mới nhất</b><i>↗</i></a>`;
     c.querySelector(".gxx").onclick = () => c.classList.remove("on");
+    c.querySelector(".gpv").onclick = () => gcard(G[(gi - 1 + gn) % gn].id);
+    c.querySelector(".gnx").onclick = () => gcard(G[(gi + 1) % gn].id);
+    { const e = c.querySelector(".gcn"); if (e && !RM) { const n = +e.dataset.c, t0 = performance.now(); (function k(t) { const q = Math.min(1, (t - t0) / 900); e.textContent = Math.round(n * (1 - Math.pow(1 - q, 3))); if (q < 1) requestAnimationFrame(k); })(t0); } }
     c.querySelectorAll("[data-n]").forEach(a => a.onclick = () => { c.classList.remove("on"); showNode(a.dataset.n); });
     c.querySelector(".glink").onclick = () => { if (rec[0]) { c.classList.remove("on"); showNode(rec[0].id); } };
     closePanel(); $("#gflP").classList.remove("on"); flyToGalaxy(id); try { SFX.whoosh(); } catch (e) {}
@@ -3266,6 +3306,48 @@ function setTheme(t) {
   setTimeout(() => { try { if (glOK) flyHome(); } catch (e) {} }, 250);
 }
 { const o = cmdsExtra; cmdsExtra = () => [...o(), ["Giao diện", "◐", galOn() ? "Chuyển sang giao diện cổ điển" : "Chuyển sang giao diện Gallery", "", () => setTheme(galOn() ? "classic" : "gal")]]; }
+
+(function v12() {
+  const fine = matchMedia("(pointer:fine)").matches;
+  /* 1. camera nghiêng theo chuột (view offset giữ nguyên độ chính xác khi bấm chọn) */
+  const sp = document.createElement("div"); sp.id = "gspot"; document.body.appendChild(sp);
+  const cur = document.createElement("div"); cur.id = "gcur"; document.body.appendChild(cur);
+  let tx = 0, ty = 0, cx = 0, cy = 0, px = innerWidth / 2, py = innerHeight / 2, qx = px, qy = py, offOn = false;
+  if (fine) addEventListener("pointermove", e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; px = e.clientX; py = e.clientY; sp.style.setProperty("--mx", px + "px"); sp.style.setProperty("--my", py + "px"); cur.classList.add("on"); const h = e.target.closest && e.target.closest("a,button,.glabel,.rw,[data-go],[data-ck],.cit"); cur.classList.toggle("hv", !!h); }, { passive: true });
+  document.addEventListener("pointerleave", () => cur.classList.remove("on"));
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (!fine || RM || document.hidden) return;
+    qx += (px - qx) * .2; qy += (py - qy) * .2; cur.style.transform = "translate(" + qx.toFixed(1) + "px," + qy.toFixed(1) + "px)";
+    if (!glOK || !camera) return;
+    if (!galOn()) { if (offOn) { camera.clearViewOffset(); offOn = false; } return; }
+    cx += (tx - cx) * .05; cy += (ty - cy) * .05;
+    if (Math.abs(cx - tx) < .0004 && Math.abs(cy - ty) < .0004 && offOn) return;
+    camera.setViewOffset(innerWidth, innerHeight, -cx * 34, -cy * 22, innerWidth, innerHeight); offOn = true;
+  })();
+  /* 2. chuyển cảnh: nội dung bảng trượt vào lần lượt */
+  function stag() {
+    if (RM || !galOn()) return;
+    const v = document.querySelector("#panel .view.on"); if (!v) return;
+    [...v.children].slice(0, 10).forEach((el, i) => { try { el.animate([{ opacity: 0, transform: "translateY(14px)" }, { opacity: 1, transform: "none" }], { duration: 650, delay: 120 + i * 70, easing: "cubic-bezier(.2,.85,.2,1)", fill: "backwards" }); } catch (e) {} });
+  }
+  { const o = setTab; setTab = (t, fh) => { const v = o(t, fh); requestAnimationFrame(stag); return v; }; }
+  /* 3. vòng tiến độ checklist hôm nay ở menu */
+  const hb = document.querySelector('#gh .lk[data-gt="hom-nay"]');
+  if (hb) {
+    hb.insertAdjacentHTML("afterbegin", '<svg class="gring" viewBox="0 0 20 20" aria-hidden="true"><circle class="bg" cx="10" cy="10" r="8"/><circle class="fg" cx="10" cy="10" r="8" pathLength="1"/></svg>');
+    const rg = hb.querySelector(".gring"), fg = rg.querySelector(".fg");
+    const upd = () => { try { const it = chkItems(vnDate()), f = it.length ? it.filter(x => x.done).length / it.length : 0; fg.style.strokeDashoffset = String(1 - f); rg.classList.toggle("ok", f >= 1); hb.title = "Checklist hôm nay: " + Math.round(f * 100) + "%"; } catch (e) {} };
+    setTimeout(upd, 3200); setInterval(upd, 2500);
+  }
+  /* 4. ← → chuyển thiên hà khi đang mở thẻ */
+  addEventListener("keydown", e => {
+    if (!galOn() || (e.key !== "ArrowLeft" && e.key !== "ArrowRight")) return;
+    const t = e.target; if (t && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) || (t && t.isContentEditable)) return;
+    const c = $("#gcard"); if (!c || !c.classList.contains("on")) return;
+    const b = c.querySelector(e.key === "ArrowLeft" ? ".gpv" : ".gnx"); if (b) { e.preventDefault(); b.click(); }
+  });
+})();
 
 setTimeout(() => { $("#boot").classList.add("off"); document.querySelectorAll(".rail,.top .hello,.k,.legend,.panel,.capture").forEach((el, i) => { el.classList.add("rv"); el.style.animationDelay = (0.5 + i * 0.06) + "s"; }); }, galOn() ? 2700 : 900);
 if (!brain.updatedAt) setSync("wait", "Đang kết nối Drive…"); else setSync("wait", "Đang đồng bộ…");
