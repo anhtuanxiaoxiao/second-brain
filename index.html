@@ -729,6 +729,47 @@ body.tet .vignette{background:radial-gradient(60% 50% at 12% 8%,rgba(255,80,60,.
 .askv{display:flex;gap:8px;align-items:center;margin-top:8px}
 .askv button{border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--ink);border-radius:99px;padding:6px 12px;font-size:12.5px;cursor:pointer}
 .askv button.on{border-color:#ff6fa8;color:#ffc2da;box-shadow:0 0 16px rgba(255,111,168,.35)}
+/* v13: 7 trụ cột + Hỏi Não */
+.plc .plh{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.25;margin:10px 0 4px}
+.plhd{display:flex;align-items:center;gap:14px;margin:10px 0 8px}
+.plhd svg{width:50px;height:50px;flex:none}
+.plhd div{flex:1;min-width:0}.plhd b{display:block;font-size:15px;font-weight:600}.plhd small{color:var(--dim);font-size:12px}
+.plr{border-top:1px solid var(--line)}
+.plt{width:100%;display:flex;align-items:center;gap:12px;background:none;border:0;color:var(--ink);text-align:left;padding:11px 2px;cursor:pointer;font:inherit}
+.plt i{width:9px;height:9px;border-radius:50%;background:var(--pc);box-shadow:0 0 10px var(--pc);flex:none}
+.plt span{flex:1;min-width:0}.plt small{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--pc);font-weight:600}
+.plt b{display:block;font-weight:500;font-size:14px;line-height:1.35}
+.plt em{font-style:normal;color:#5cf2a8;font-size:14px;width:18px;text-align:center}
+.plr.rd .plt b{color:var(--dim)}
+.plb{display:none;padding:0 2px 14px 21px;font-size:13.5px;line-height:1.6}
+.plb p{margin:0 0 8px}
+.plr.op .plb{display:block;animation:plin .35s ease}
+@keyframes plin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.plw{color:var(--dim);font-size:12.5px}
+.pla{border-left:2px solid var(--pc);padding:7px 11px;background:rgba(255,255,255,.035);border-radius:0 8px 8px 0;margin:8px 0}
+.pla b{display:block;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--pc);margin-bottom:2px}
+.plf{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}.plf span{flex:1}
+.plf a{font-size:12px;color:var(--dim)}
+.plold{font-size:12px;color:var(--faint);margin:0 0 6px}
+.askHero{border:1px solid var(--line);border-radius:16px;padding:16px 16px 12px;background:linear-gradient(160deg,rgba(125,243,255,.08),rgba(180,140,255,.06));margin-bottom:6px}
+.askHero h3{font-family:var(--serif);font-size:25px;font-weight:400;margin:8px 0 6px;letter-spacing:-.01em}
+.askHero>p{font-size:13px;margin:0 0 12px;line-height:1.55}
+.askHero>p b{color:var(--ink)}
+.askHero .row textarea{min-height:58px;font-size:15px}
+.askHero .askv{margin-top:6px}
+.askHero #askBtn{white-space:nowrap;align-self:stretch}
+.akm{font-size:10px;letter-spacing:.06em;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--faint);font-weight:600}
+.akm.on{color:#5cf2a8;border-color:rgba(92,242,168,.45)}
+.akw{font-size:12px;color:var(--faint);margin:-4px 0 10px}
+.sgg small{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:12px 0 6px;font-weight:600}
+.sgg .sugs{margin:0}
+.asrc{margin-top:10px;padding-top:8px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.asrc small{color:var(--faint);font-size:11px;margin-right:2px;letter-spacing:.06em;text-transform:uppercase}
+.asrc a{font-size:12px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:var(--dim);text-decoration:none;cursor:pointer}
+.msg.u{font-weight:500}
+.ahl{display:flex;flex-direction:column;gap:6px}
+.ahi{text-align:left;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:9px 12px;color:var(--ink);cursor:pointer;font:inherit}
+.ahi b{display:block;font-weight:500;font-size:13.5px;line-height:1.4}.ahi small{color:var(--faint);font-size:11px}
 .msg .rd{background:none;border:0;color:var(--faint);cursor:pointer;font-size:12px;margin-top:6px;padding:0}
 @media (max-width:820px){#rel{bottom:150px}#srs .fi{min-height:330px}}
 
@@ -762,7 +803,7 @@ button:focus:not(:focus-visible),a:focus:not(:focus-visible){outline:none}
 
 /* ===== v11 GALLERY (phong cách ICG Gallery) ===== */
 #gh,#gframe,#gfl,#gbr,.gcp{display:none}
-body.gal{--gfont:"Jost","Futura","Century Gothic","Be Vietnam Pro",system-ui,sans-serif;--serif:var(--gfont);font-family:var(--gfont);font-weight:300;--cream:#f5f1ea;--gink:#1c1b19}
+body.gal{--gfont:"Jost","Be Vietnam Pro",system-ui,sans-serif;--serif:var(--gfont);font-family:var(--gfont);font-weight:300;--cream:#f5f1ea;--gink:#1c1b19}
 body.gal button,body.gal input,body.gal textarea,body.gal select{font-family:var(--gfont)}
 body.gal .rail,body.gal .legend,body.gal .hint,body.gal .scan,body.gal #grain,body.gal .top,body.gal .tline,body.gal .mfab,body.gal #rel{display:none!important}
 body.gal .vignette{background:radial-gradient(ellipse 80% 70% at 50% 52%,transparent 40%,rgba(3,3,6,.78) 100%)}
@@ -829,6 +870,8 @@ body.gal #gcur.hv{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(
 #gh .gring .bg{opacity:.28}
 #gh .gring .fg{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.1s cubic-bezier(.2,.85,.2,1),stroke .4s}
 #gh .gring.ok .fg{stroke:#ffd98a}
+body.gal .panel,body.gal #cap,body.gal .gcp .gcols,body.gal #toast,body.gal .cmdk,body.gal .ovl{--serif:"Be Vietnam Pro",system-ui,sans-serif;font-family:"Be Vietnam Pro",system-ui,sans-serif}
+body.gal .gcp .gcols a,body.gal .gcp .gcols p{font-family:"Be Vietnam Pro",system-ui,sans-serif;font-weight:300}
 @media (prefers-reduced-motion:reduce){#gcard.on h2,#gcard.on .gspark,#gcard.on .gcols>div,#gcard.on .glink,.gspark path{animation:none!important;stroke-dashoffset:0;opacity:1}}
 
 .gcp .gh{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
@@ -970,9 +1013,9 @@ body:not(.gal) .boot .wl,body:not(.gal) .boot .wm{display:none}
 
 <section class="panel glass" id="panel">
   <nav class="tabs" id="tabs">
-    <button class="tab on" data-tab="hom-nay">Hôm nay</button>
-    <button class="tab" data-tab="hoi-ho-so">Hỏi &amp; Hồ sơ</button>
-    <button class="tab" data-tab="nghien-cuu">Nghiên cứu &amp; Số liệu</button>
+    <button class="tab on" data-tab="hom-nay">Today</button>
+    <button class="tab" data-tab="hoi-ho-so">Ask Brain</button>
+    <button class="tab" data-tab="nghien-cuu">Research &amp; Insights</button>
   </nav>
   <div class="pbody" id="pbody">
     <div class="view on" id="v-hom-nay"></div>
@@ -989,12 +1032,12 @@ body:not(.gal) .boot .wl,body:not(.gal) .boot .wm{display:none}
 <form class="capture glass" id="cap" autocomplete="off">
   <div class="cap-g" id="capG"></div>
   <div class="cap-row">
-    <textarea id="capT" rows="1" placeholder="Đổ vào não: ý tưởng, quyết định, điều đang nghĩ…"></textarea>
+    <textarea id="capT" rows="1" placeholder="Capture an idea, a decision, a thought…"></textarea>
     <div id="capImg"></div>
-    <label class="ibtn" for="file" title="Thêm ảnh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg></label>
+    <label class="ibtn" for="file" title="Add a photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2"/><path d="M21 16l-5-5-8 8"/></svg></label>
     <input type="file" id="file" accept="image/*" hidden>
-    <button type="button" class="ibtn" id="mic" title="Nói để ghi" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
-    <button type="submit" class="send" id="sendBtn">✦ <span>Gửi vào não</span></button>
+    <button type="button" class="ibtn" id="mic" title="Speak to capture" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+    <button type="submit" class="send" id="sendBtn">✦ <span>Send to brain</span></button>
   </div>
   <div class="partial" id="partial"></div>
 </form>
@@ -1009,13 +1052,13 @@ body:not(.gal) .boot .wl,body:not(.gal) .boot .wm{display:none}
 <div id="toast"></div>
 
 <div id="gframe"><i class="l"></i><i class="r"></i><i class="t"></i></div>
-<header id="gh"><div class="lg"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="14" cy="14" r="2.4" fill="currentColor"/><ellipse cx="14" cy="14" rx="12" ry="5" transform="rotate(-28 14 14)"/><ellipse cx="14" cy="14" rx="12" ry="5" transform="rotate(32 14 14)" opacity=".55"/></svg>Second Brain</div><div class="ct" id="ghT">Thiên hà</div>
-<nav><button class="lk" data-gt="hom-nay">Hôm nay</button><button class="lk" data-gt="hoi-ho-so">Hỏi</button><button class="lk" data-gt="nghien-cuu">Số liệu</button><button class="mnu" data-gt="hom-nay">Menu</button><span class="vb"></span><button class="ic" id="ghK" aria-label="Bảng lệnh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="1"/><path d="M9 9h6v6H9z"/></svg></button></nav></header>
-<div id="gfl"><button id="gflB">Thiên hà<span class="vb"></span><i></i></button></div>
-<div id="gbr"><button id="gCl" class="cl">Cổ điển</button><span class="vb"></span><button id="gSnd" aria-label="Bật tắt âm thanh"><i></i><i></i><i></i><i></i><i></i></button></div>
-<div class="gcp" id="gflP" role="dialog" aria-label="Chọn thiên hà"><div class="gh"><span>Chọn thiên hà</span><button class="gxx" aria-label="Đóng"><svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M2 2l12 12M14 2 2 14"/></svg></button></div><div class="rows" id="gflR"></div></div>
-<div class="gcp" id="gcard" role="dialog" aria-label="Thiên hà"></div>
-<div class="boot" id="boot"><div class="b"><div class="ring"></div><div class="t">ĐANG ĐÁNH THỨC BỘ NÃO</div><div class="wl" id="wl"></div><div class="wm">SECOND<br>BRAIN</div></div></div>
+<header id="gh"><div class="lg"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="14" cy="14" r="2.4" fill="currentColor"/><ellipse cx="14" cy="14" rx="12" ry="5" transform="rotate(-28 14 14)"/><ellipse cx="14" cy="14" rx="12" ry="5" transform="rotate(32 14 14)" opacity=".55"/></svg>Second Brain</div><div class="ct" id="ghT">Galaxies</div>
+<nav><button class="lk" data-gt="hom-nay">Today</button><button class="lk" data-gt="hoi-ho-so">Ask Brain</button><button class="lk" data-gt="nghien-cuu">Insights</button><button class="mnu" data-gt="hom-nay">Menu</button><span class="vb"></span><button class="ic" id="ghK" aria-label="Command palette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3.5" y="3.5" width="17" height="17" rx="1"/><path d="M9 9h6v6H9z"/></svg></button></nav></header>
+<div id="gfl"><button id="gflB">Galaxies<span class="vb"></span><i></i></button></div>
+<div id="gbr"><button id="gCl" class="cl">Classic</button><span class="vb"></span><button id="gSnd" aria-label="Toggle sound"><i></i><i></i><i></i><i></i><i></i></button></div>
+<div class="gcp" id="gflP" role="dialog" aria-label="Choose a galaxy"><div class="gh"><span>Choose a galaxy</span><button class="gxx" aria-label="Close"><svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6"><path d="M2 2l12 12M14 2 2 14"/></svg></button></div><div class="rows" id="gflR"></div></div>
+<div class="gcp" id="gcard" role="dialog" aria-label="Galaxy"></div>
+<div class="boot" id="boot"><div class="b"><div class="ring"></div><div class="t">WAKING YOUR BRAIN</div><div class="wl" id="wl"></div><div class="wm">SECOND<br>BRAIN</div></div></div>
 
 <script type="module">
 let THREE, OrbitControls, EffectComposer, RenderPass, UnrealBloomPass, OutputPass;
@@ -1034,11 +1077,11 @@ const IDS = {
 };
 const START = new Date("2026-11-11T00:00:00+07:00");
 const G = [
-  { id: "ban-than", name: "Bản thân", color: "#ff6fa8", hint: "sức khoẻ, cảm xúc, thói quen, chính mình" },
-  { id: "quan-he", name: "Quan hệ", color: "#ffb454", hint: "gia đình, bạn bè, người xung quanh" },
-  { id: "cong-viec", name: "Công việc", color: "#4fc3ff", hint: "THP, marketing, sự nghiệp, đội nhóm" },
-  { id: "niem-tin", name: "Niềm tin", color: "#b48cff", hint: "giá trị, nguyên tắc sống, quan điểm" },
-  { id: "hoc", name: "Học & ý tưởng", color: "#5cf2a8", hint: "sách, kiến thức, dự án, ý tưởng mới" }
+  { id: "ban-than", name: "Self", color: "#ff6fa8", hint: "health, feelings, habits, myself" },
+  { id: "quan-he", name: "Relationships", color: "#ffb454", hint: "family, friends, the people around me" },
+  { id: "cong-viec", name: "Work", color: "#4fc3ff", hint: "THP, marketing, career, team" },
+  { id: "niem-tin", name: "Beliefs", color: "#b48cff", hint: "values, principles, point of view" },
+  { id: "hoc", name: "Learning & ideas", color: "#5cf2a8", hint: "books, knowledge, projects, new ideas" }
 ];
 const GM = Object.fromEntries(G.map((g, i) => [g.id, { ...g, i }]));
 const TYPES = { "y-tuong": "Ý tưởng", "quyet-dinh": "Quyết định", "bai-hoc": "Bài học", "cau-hoi": "Câu hỏi", "niem-tin": "Niềm tin", "cam-xuc": "Cảm xúc", "ghi-chep": "Ghi chép", "nghien-cuu": "Nghiên cứu" };
@@ -1573,7 +1616,7 @@ function makeGalaxies() {
     const hit = new THREE.Mesh(new THREE.SphereGeometry(30, 10, 8), new THREE.MeshBasicMaterial({ visible: false })); hit.userData.g = gd.id; grp.add(hit);
     scene.add(grp);
     const lab = document.createElement("div"); lab.className = "glabel"; lab.style.color = gd.color;
-    lab.innerHTML = `<div class="n">${esc(gd.name)}</div><div class="c" data-c="${gd.id}">0 ý</div>`;
+    lab.innerHTML = `<div class="n">${esc(gd.name)}</div><div class="c" data-c="${gd.id}">0 notes</div>`;
     lab.onclick = () => flyToGalaxy(gd.id); $("#labels").appendChild(lab);
     W.galaxies.push({ id: gd.id, grp, disc, core, layer, hit, lab, color: gd.color });
   });
@@ -1923,7 +1966,7 @@ function renderLegend(nodes) {
   $("#lgRows").innerHTML = G.map((g, i) => { const c = cnt[g.id] || 0, pc = Math.round(c / tot * 100);
     return `<button class="lg-row" data-g="${g.id}"><span class="lg-dot" style="background:${g.color};box-shadow:0 0 10px ${g.color}"></span><span class="lg-name">${esc(g.name)}</span><span class="lg-n">${c}<em>${pc}%</em></span><span class="lg-bar"><i style="width:${c / mx * 100}%;background:linear-gradient(90deg,${g.color}55,${g.color});box-shadow:0 0 8px ${g.color};animation-delay:${i * .08}s"></i></span></button>`; }).join("");
   $("#lgRows").querySelectorAll(".lg-row").forEach(b => b.onclick = () => flyToGalaxy(b.dataset.g));
-  W.galaxies.forEach(gx => { const el = gx.lab.querySelector("[data-c]"); if (el) el.innerHTML = (cnt[gx.id] || 0) + " ý<span class=\"pc\">" + Math.round((cnt[gx.id] || 0) / tot * 100) + "%</span>"; });
+  W.galaxies.forEach(gx => { const el = gx.lab.querySelector("[data-c]"); if (el) el.innerHTML = (cnt[gx.id] || 0) + " notes<span class=\"pc\">" + Math.round((cnt[gx.id] || 0) / tot * 100) + "%</span>"; });
   if (glOK) setShareRings(cnt, tot);
 }
 const PCOL = ["#ff6fa8", "#ff8f6b", "#5cf2a8", "#ffb454", "#b48cff", "#4fc3ff", "#e8c37a"];
@@ -1985,7 +2028,7 @@ function renderHUD(nodes) {
   $("#minis").innerHTML = [[(brain.lessons || []).length || learned, "bài đã học"], [q, "bài soạn sẵn"], [Object.keys(tags).length, "chủ đề #"]].map(([v, l]) => `<div class="mini"><b>${v}</b><span>${l}</span></div>`).join("");
 }
 function renderCapG() {
-  const opts = [{ id: "auto", name: "Tự động", color: "#7df3ff" }, ...G];
+  const opts = [{ id: "auto", name: "Auto", color: "#7df3ff" }, ...G];
   $("#capG").innerHTML = opts.map(g => `<button type="button" class="gch ${capG === g.id ? "on" : ""}" data-g="${g.id}"><i style="background:${g.color}"></i>${esc(g.name)}</button>`).join("");
   $("#capG").querySelectorAll(".gch").forEach(b => b.onclick = () => { capG = b.dataset.g; renderCapG(); });
 }
@@ -2064,7 +2107,7 @@ function showNode(id) {
   selId = id; const g = GM[nd.g] || GM.hoc;
   const links = (nd.links || []).map(l => allNodes().find(n => n.id === l)).filter(Boolean);
   const d = $("#detail");
-  d.innerHTML = `<button class="x" type="button" aria-label="Đóng">×</button>
+  d.innerHTML = `<button class="x" type="button" aria-label="Close">×</button>
     <div class="row"><span class="pill"><i style="background:${g.color}"></i>${esc(g.name)}</span><span class="pill">${esc(TYPES[nd.type] || "")}</span>${pillarPill(nd.pillar)}<span class="pill">${fmtD(nd.date)}</span></div>
     <h3>${esc(nd.title)}</h3><p>${esc(nd.text)}</p>
     ${nd.url ? `<p><a href="${esc(nd.url)}" target="_blank" rel="noopener">Đọc nguồn ↗</a></p>` : ""}
@@ -2860,7 +2903,7 @@ function openWrapped() {
     [`<div class="wk2">Tóm lại</div><div class="wt">${D.n} ý · ${D.passed}/7 ngày · ${D.words.length} từ mới</div><div class="ma" style="display:flex;gap:10px;justify-content:center;margin-top:22px"><button class="btn" type="button" id="wSave">Lưu ảnh tổng kết</button><button class="btn ghost" type="button" id="wEnd">Xong</button></div>`, "radial-gradient(70% 60% at 30% 20%,rgba(var(--accR),.3),transparent 70%),radial-gradient(60% 60% at 80% 90%,rgba(232,195,122,.3),transparent 70%)"]
   ];
   let w = $("#wrap"); if (!w) { w = document.createElement("div"); w.id = "wrap"; document.body.appendChild(w); }
-  w.innerHTML = `<div class="wbar">${S.map(() => "<i><b></b></i>").join("")}</div><button class="wx" type="button" aria-label="Đóng">×</button>` + S.map(([h, bg], i) => `<div class="ws" data-i="${i}" style="background:${bg}">${h}</div>`).join("");
+  w.innerHTML = `<div class="wbar">${S.map(() => "<i><b></b></i>").join("")}</div><button class="wx" type="button" aria-label="Close">×</button>` + S.map(([h, bg], i) => `<div class="ws" data-i="${i}" style="background:${bg}">${h}</div>`).join("");
   w.classList.add("on"); wIdx = 0; wShow();
   w.querySelector(".wx").onclick = closeWrapped;
   w.onclick = e => { if (e.target.closest("button")) return; if (e.clientX < innerWidth * .3) wGo(-1); else wGo(1); };
@@ -2911,7 +2954,7 @@ function relatedFor(text, exId, k = 3, tags = []) {
 let xRel = null;
 function showRel(list) {
   let e = $("#rel"); if (!e) { e = document.createElement("div"); e.id = "rel"; e.className = "glass"; document.body.appendChild(e); }
-  e.innerHTML = `<div class="k2"><span>✦ Ý này nối với ${list.length} ý cũ</span><button type="button" aria-label="Đóng">×</button></div>` + list.map(n => `<div class="ri" data-id="${esc(n.id)}"><i style="background:${(GM[n.g] || {}).color || "#fff"}"></i><span>${esc(n.title)}</span><em>${fmtD(n.date)}</em></div>`).join("");
+  e.innerHTML = `<div class="k2"><span>✦ Ý này nối với ${list.length} ý cũ</span><button type="button" aria-label="Close">×</button></div>` + list.map(n => `<div class="ri" data-id="${esc(n.id)}"><i style="background:${(GM[n.g] || {}).color || "#fff"}"></i><span>${esc(n.title)}</span><em>${fmtD(n.date)}</em></div>`).join("");
   e.classList.add("on"); e.querySelector("button").onclick = () => e.classList.remove("on");
   e.querySelectorAll(".ri").forEach(x => x.onclick = () => { e.classList.remove("on"); showNode(x.dataset.id); });
   clearTimeout(e._t); e._t = setTimeout(() => e.classList.remove("on"), 12000);
@@ -3234,20 +3277,20 @@ setTimeout(a11y, 1200); setInterval(a11y, 15000);
 /* ===== v11 GALLERY ===== */
 const galOn = () => document.body.classList.contains("gal");
 (function galery() {
-  const pn = $("#panel"), tabN = { "hom-nay": "Hôm nay", "hoi-ho-so": "Hỏi & Hồ sơ", "nghien-cuu": "Nghiên cứu & Số liệu" };
+  const pn = $("#panel"), tabN = { "hom-nay": "Today", "hoi-ho-so": "Ask Brain", "nghien-cuu": "Research & Insights" };
   let ready = false; setTimeout(() => ready = true, 3500);
   /* chữ gõ ở màn chào */
-  (function () { const el = $("#wl"); if (!el || !galOn()) return; const t = "Chào mừng đến\nbộ não của Kian"; let i = 0; const k = setInterval(() => { el.textContent = t.slice(0, ++i); if (i >= t.length) clearInterval(k); }, 55); })();
+  (function () { const el = $("#wl"); if (!el || !galOn()) return; const t = "Welcome to\nKian's second brain"; let i = 0; const k = setInterval(() => { el.textContent = t.slice(0, ++i); if (i >= t.length) clearInterval(k); }, 55); })();
   /* nút đóng trong panel */
-  const gx = document.createElement("button"); gx.className = "gx"; gx.setAttribute("aria-label", "Đóng"); gx.innerHTML = '<svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M2 2l12 12M14 2 2 14"/></svg>'; pn.appendChild(gx);
+  const gx = document.createElement("button"); gx.className = "gx"; gx.setAttribute("aria-label", "Close"); gx.innerHTML = '<svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M2 2l12 12M14 2 2 14"/></svg>'; pn.appendChild(gx);
   const T = (t) => { const e = $("#ghT"); if (e) e.textContent = t; };
   const hideAll = () => { $("#gcard").classList.remove("on"); $("#gflP").classList.remove("on"); };
-  const closePanel = () => { pn.classList.remove("gopen"); if (MOB) pn.classList.remove("open"); T("Thiên hà"); };
-  const openTab = t => { hideAll(); setTab(t); if (MOB) pn.classList.add("open"); else pn.classList.add("gopen"); T(tabN[t] || "Thiên hà"); try { SFX.tick(); } catch (e) {} };
+  const closePanel = () => { pn.classList.remove("gopen"); if (MOB) pn.classList.remove("open"); T("Galaxies"); };
+  const openTab = t => { hideAll(); setTab(t); if (MOB) pn.classList.add("open"); else pn.classList.add("gopen"); T(tabN[t] || "Galaxies"); try { SFX.tick(); } catch (e) {} };
   gx.onclick = closePanel;
   document.querySelectorAll("#gh [data-gt]").forEach(b => b.onclick = () => { if (!MOB && pn.classList.contains("gopen") && $(".tab.on").dataset.tab === b.dataset.gt) closePanel(); else openTab(b.dataset.gt); });
   $("#ghK").onclick = () => openCmdk();
-  { const o = setTab; setTab = (t, fh) => { const v = o(t, fh); try { if (galOn() && !MOB && ready) { hideAll(); pn.classList.add("gopen"); T(tabN[tab] || "Thiên hà"); } } catch (e) {} return v; }; }
+  { const o = setTab; setTab = (t, fh) => { const v = o(t, fh); try { if (galOn() && !MOB && ready) { hideAll(); pn.classList.add("gopen"); T(tabN[tab] || "Galaxies"); } } catch (e) {} return v; }; }
   /* thẻ thiên hà khi bấm mắt */
   function spark(ns) {
     const N = 12, now = Date.now(), wk = 7 * 864e5, bins = new Array(N).fill(0);
@@ -3256,7 +3299,7 @@ const galOn = () => document.body.classList.contains("gal");
     let d = "M" + pts[0][0] + "," + pts[0][1];
     for (let i = 1; i < pts.length; i++) { const a = pts[i - 1], b = pts[i], m = (a[0] + b[0]) / 2; d += " C" + m + "," + a[1] + " " + m + "," + b[1] + " " + b[0] + "," + b[1]; }
     const tot = bins.reduce((a, b) => a + b, 0);
-    return `<div class="gspark"><svg viewBox="0 0 ${w} ${h}" aria-hidden="true"><path class="ar" d="${d} L${w},${h} L0,${h}Z"/><path class="ln" d="${d}" pathLength="1"/></svg><small><span>12 tuần qua</span><span>${tot} ý mới</span></small></div>`;
+    return `<div class="gspark"><svg viewBox="0 0 ${w} ${h}" aria-hidden="true"><path class="ar" d="${d} L${w},${h} L0,${h}Z"/><path class="ln" d="${d}" pathLength="1"/></svg><small><span>Last 12 weeks</span><span>${tot} new notes</span></small></div>`;
   }
   function gcard(id) {
     const g = GM[id]; if (!g) return; const ns = allNodes().filter(n => n.g === id), tot = allNodes().length || 1, share = Math.round(ns.length / tot * 100);
@@ -3265,11 +3308,11 @@ const galOn = () => document.body.classList.contains("gal");
     const rec = [...ns].sort((a, b) => String(b.date).localeCompare(String(a.date))).slice(0, 3);
     const c = $("#gcard");
     const gi = Math.max(0, G.findIndex(q => q.id === id)), gn = G.length; window.__galCur = id;
-    c.innerHTML = `<div class="gh"><span>Thiên hà<span class="gi">${String(gi + 1).padStart(2, "0")} / ${String(gn).padStart(2, "0")}</span></span><span class="gnav"><button class="gpv" aria-label="Thiên hà trước">←</button><button class="gnx" aria-label="Thiên hà sau">→</button><button class="gxx" aria-label="Đóng"><svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M2 2l12 12M14 2 2 14"/></svg></button></span></div>
-    <h2>${esc(g.name)}: <span class="gcn" data-c="${ns.length}">${ns.length}</span> điểm sáng, chiếm ${share}% bộ não của anh.</h2>${spark(ns)}
-    <div class="gcols"><div><p>${esc(g.hint)}.</p>${top.length ? `<p>Chủ đề nổi bật: ${top.map(esc).join(", ")}.</p>` : ""}</div>
-    <div>${rec.length ? rec.map(n => `<a data-n="${esc(n.id)}">${esc((n.title || "").slice(0, 62))}<small>${esc(n.date || "")}</small></a>`).join("") : "<p>Chưa có ý nào ở đây.</p>"}</div></div>
-    <a class="glink"><span>Xem thêm</span><b>Mở ý mới nhất</b><i>↗</i></a>`;
+    c.innerHTML = `<div class="gh"><span>Galaxy<span class="gi">${String(gi + 1).padStart(2, "0")} / ${String(gn).padStart(2, "0")}</span></span><span class="gnav"><button class="gpv" aria-label="Previous galaxy">←</button><button class="gnx" aria-label="Next galaxy">→</button><button class="gxx" aria-label="Close"><svg viewBox="0 0 16 16" stroke="currentColor" stroke-width="1.6" fill="none"><path d="M2 2l12 12M14 2 2 14"/></svg></button></span></div>
+    <h2>${esc(g.name)}: <span class="gcn" data-c="${ns.length}">${ns.length}</span> stars, ${share}% of your brain.</h2>${spark(ns)}
+    <div class="gcols"><div><p>${esc(g.hint)}.</p>${top.length ? `<p>Top themes: ${top.map(esc).join(", ")}.</p>` : ""}</div>
+    <div>${rec.length ? rec.map(n => `<a data-n="${esc(n.id)}">${esc((n.title || "").slice(0, 62))}<small>${esc(n.date || "")}</small></a>`).join("") : "<p>Nothing here yet.</p>"}</div></div>
+    <a class="glink"><span>More</span><b>Open latest note</b><i>↗</i></a>`;
     c.querySelector(".gxx").onclick = () => c.classList.remove("on");
     c.querySelector(".gpv").onclick = () => gcard(G[(gi - 1 + gn) % gn].id);
     c.querySelector(".gnx").onclick = () => gcard(G[(gi + 1) % gn].id);
@@ -3285,7 +3328,7 @@ const galOn = () => document.body.classList.contains("gal");
   function floors() {
     const ns = allNodes(), cnt = {}; ns.forEach(n => cnt[n.g] = (cnt[n.g] || 0) + 1);
     const list = [...G].sort((a, b) => (cnt[b.id] || 0) - (cnt[a.id] || 0));
-    $("#gflR").innerHTML = `<button class="rw" data-h="1"><b>0</b><em style="font-style:normal">Toàn cảnh vũ trụ</em><span>${ns.length} ý</span></button>` + list.map((g, i) => `<button class="rw" data-g="${g.id}"><b>${String(i + 1).padStart(2, "0")}</b><em style="font-style:normal"><i style="background:${g.color}"></i>${esc(g.name)}</em><span>${cnt[g.id] || 0} ý</span></button>`).join("");
+    $("#gflR").innerHTML = `<button class="rw" data-h="1"><b>0</b><em style="font-style:normal">Whole universe</em><span>${ns.length} notes</span></button>` + list.map((g, i) => `<button class="rw" data-g="${g.id}"><b>${String(i + 1).padStart(2, "0")}</b><em style="font-style:normal"><i style="background:${g.color}"></i>${esc(g.name)}</em><span>${cnt[g.id] || 0} notes</span></button>`).join("");
     fl.querySelectorAll(".rw").forEach(b => b.onclick = () => { fl.classList.remove("on"); if (b.dataset.h) { $("#gcard").classList.remove("on"); flyHome(); } else gcard(b.dataset.g); });
   }
   const openFloors = () => { if (fl.classList.contains("on")) { fl.classList.remove("on"); return; } closePanel(); $("#gcard").classList.remove("on"); floors(); fl.classList.add("on"); };
@@ -3301,11 +3344,11 @@ setTimeout(() => { try { if (galOn() && glOK) flyHome(); } catch (e) {} }, 3000)
 function setTheme(t) {
   document.body.classList.toggle("gal", t === "gal"); ls.set("sb_theme", t);
   const pn = $("#panel"); if (pn) { pn.classList.remove("gopen"); if (t === "gal") pn.classList.remove("open"); }
-  try { toast(t === "gal" ? "Giao diện Gallery" : "Giao diện cổ điển", 1600); } catch (e) {}
+  try { toast(t === "gal" ? "Gallery theme" : "Classic theme", 1600); } catch (e) {}
   try { dispatchEvent(new Event("resize")); } catch (e) {}
   setTimeout(() => { try { if (glOK) flyHome(); } catch (e) {} }, 250);
 }
-{ const o = cmdsExtra; cmdsExtra = () => [...o(), ["Giao diện", "◐", galOn() ? "Chuyển sang giao diện cổ điển" : "Chuyển sang giao diện Gallery", "", () => setTheme(galOn() ? "classic" : "gal")]]; }
+{ const o = cmdsExtra; cmdsExtra = () => [...o(), ["Theme", "◐", galOn() ? "Switch to the classic theme" : "Switch to the Gallery theme", "", () => setTheme(galOn() ? "classic" : "gal")]]; }
 
 (function v12() {
   const fine = matchMedia("(pointer:fine)").matches;
@@ -3337,7 +3380,7 @@ function setTheme(t) {
   if (hb) {
     hb.insertAdjacentHTML("afterbegin", '<svg class="gring" viewBox="0 0 20 20" aria-hidden="true"><circle class="bg" cx="10" cy="10" r="8"/><circle class="fg" cx="10" cy="10" r="8" pathLength="1"/></svg>');
     const rg = hb.querySelector(".gring"), fg = rg.querySelector(".fg");
-    const upd = () => { try { const it = chkItems(vnDate()), f = it.length ? it.filter(x => x.done).length / it.length : 0; fg.style.strokeDashoffset = String(1 - f); rg.classList.toggle("ok", f >= 1); hb.title = "Checklist hôm nay: " + Math.round(f * 100) + "%"; } catch (e) {} };
+    const upd = () => { try { const it = chkItems(vnDate()), f = it.length ? it.filter(x => x.done).length / it.length : 0; fg.style.strokeDashoffset = String(1 - f); rg.classList.toggle("ok", f >= 1); hb.title = "Today's checklist: " + Math.round(f * 100) + "%"; } catch (e) {} };
     setTimeout(upd, 3200); setInterval(upd, 2500);
   }
   /* 4. ← → chuyển thiên hà khi đang mở thẻ */
@@ -3348,6 +3391,94 @@ function setTheme(t) {
     const b = c.querySelector(e.key === "ArrowLeft" ? ".gpv" : ".gnx"); if (b) { e.preventDefault(); b.click(); }
   });
 })();
+
+/* ===== v13: 7 bài trụ cột mỗi ngày + Hỏi Não rõ ràng ===== */
+function pillarSet() {
+  const pd = brain.pillarDaily, ord = id => PILLARS.findIndex(p => p[0] === id);
+  const ns = allNodes().filter(n => (n.tags || []).includes("bai-tru-cot") && PM[n.pillar]);
+  const d = ns.reduce((m, n) => String(n.date) > m ? String(n.date) : m, "");
+  if (pd && pd.date && (pd.items || []).length && pd.date >= d) return { date: pd.date, items: [...pd.items].filter(x => PM[x.pillar]).sort((a, b) => ord(a.pillar) - ord(b.pillar)) };
+  if (!d) return null;
+  const items = ns.filter(n => n.date === d).sort((a, b) => ord(a.pillar) - ord(b.pillar)).map(n => ({ pillar: n.pillar, title: n.title, idea: n.text, why: n.why, action: n.act || n.action, source: n.source, url: n.url, nodeId: n.id }));
+  return items.length ? { date: d, items } : null;
+}
+const safeUrl = u => /^https?:\/\//i.test(String(u || "")) ? String(u) : "";
+function pillarCard(openP) {
+  const S = pillarSet(), today = vnDate();
+  if (!S) return `<div class="card plc" id="plCard"><div class="kicker"><span>7 TRỤ CỘT MỖI NGÀY</span></div><h3 class="plh">Bảy bài ngắn, mỗi trụ cột một bài</h3><p class="muted" style="margin:6px 0 0">Bộ não soạn bộ bài mới lúc 6:19 mỗi sáng: Thể chất, Cảm xúc, Trí tuệ, Xã hội, Tinh thần, Môi trường, Nghề nghiệp &amp; tài chính. Mỗi bài có một ý chính có nguồn và một việc nhỏ làm trong 10 phút.</p></div>`;
+  const rd = ls.get("sb_pl", {})[S.date] || {}, n = S.items.filter(x => rd[x.pillar]).length, seg = Math.PI * 2 / 7;
+  const arc = (a1, a2) => `M${25 + 20 * Math.cos(a1)},${25 + 20 * Math.sin(a1)} A20,20 0 0 1 ${25 + 20 * Math.cos(a2)},${25 + 20 * Math.sin(a2)}`;
+  const ring = PILLARS.map(([id], i) => { const a1 = -Math.PI / 2 + i * seg + .09, a2 = -Math.PI / 2 + (i + 1) * seg - .09; return `<path d="${arc(a1, a2)}" fill="none" stroke-width="5" stroke-linecap="round" stroke="${rd[id] ? PCOL[i] : "rgba(140,150,190,.22)"}"/>`; }).join("") + `<text x="25" y="29.5" text-anchor="middle" font-size="12" font-weight="600" fill="currentColor">${n}/7</text>`;
+  const rows = S.items.map(x => { const i = PILLARS.findIndex(p => p[0] === x.pillar), c = PCOL[i] || "#7df3ff", u = safeUrl(x.url), r1 = !!rd[x.pillar];
+    return `<div class="plr ${r1 ? "rd" : ""} ${openP === x.pillar ? "op" : ""}" data-p="${esc(x.pillar)}" style="--pc:${c}"><button class="plt" type="button" aria-expanded="${openP === x.pillar}"><i></i><span><small>${esc(PM[x.pillar])}</small><b>${esc(x.title || "")}</b></span><em>${r1 ? "✓" : ""}</em></button>
+    <div class="plb"><p>${esc(x.idea || "")}</p>${x.why ? `<p class="plw">Vì sao đáng cho anh: ${esc(x.why)}</p>` : ""}${x.action ? `<div class="pla"><b>Làm ngay</b>${esc(x.action)}</div>` : ""}
+    <div class="plf">${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(x.source || "Nguồn")} ↗</a>` : ""}<span></span>${x.nodeId ? `<button type="button" class="btn ghost" data-pn="${esc(x.nodeId)}">Xem trong não</button>` : ""}<button type="button" class="btn ${r1 ? "ghost" : ""}" data-pr="${esc(x.pillar)}">${r1 ? "Đã đọc ✓" : "Đã đọc"}</button></div></div></div>`; }).join("");
+  return `<div class="card plc" id="plCard"><div class="kicker"><span>7 TRỤ CỘT HÔM NAY · ${fmtD(S.date)}</span></div>
+    ${S.date !== today ? `<p class="plold">Đây là bộ bài gần nhất. Bộ mới được soạn lúc 6:19 sáng.</p>` : ""}
+    <div class="plhd"><svg viewBox="0 0 50 50" aria-hidden="true">${ring}</svg><div><b>${n === 7 ? "Đã đọc đủ 7 trụ cột ✦" : n ? `Đã đọc ${n}, còn ${7 - n} bài` : "Mỗi trụ cột một bài, đọc trong 2 phút"}</b><small>Bấm từng dòng để mở bài, đọc xong bấm “Đã đọc”.</small></div></div>${rows}</div>`;
+}
+function plMount(openP) {
+  const v = $("#v-hom-nay"); if (!v) return;
+  const html = pillarCard(openP), old = $("#plCard");
+  if (old) old.outerHTML = html; else { const a = $("#lessonCard") || $("#ckCard"); if (a && a.parentNode === v) a.insertAdjacentHTML("afterend", html); else v.insertAdjacentHTML("afterbegin", html); }
+  const c = $("#plCard"); if (!c) return;
+  c.querySelectorAll(".plt").forEach(b => b.onclick = () => { const r1 = b.parentNode, on = !r1.classList.contains("op"); c.querySelectorAll(".plr.op").forEach(x => { x.classList.remove("op"); x.querySelector(".plt").setAttribute("aria-expanded", "false"); }); if (on) { r1.classList.add("op"); b.setAttribute("aria-expanded", "true"); } });
+  c.querySelectorAll("[data-pn]").forEach(b => b.onclick = () => showNode(b.dataset.pn));
+  c.querySelectorAll("[data-pr]").forEach(b => b.onclick = () => {
+    const S = pillarSet(); if (!S) return; const all = ls.get("sb_pl", {}), d = all[S.date] = all[S.date] || {}, p = b.dataset.pr;
+    if (d[p]) delete d[p]; else d[p] = 1; ls.set("sb_pl", all);
+    const n = S.items.filter(x => d[x.pillar]).length; const nx = d[p] ? S.items.find(x => !d[x.pillar]) : S.items.find(x => x.pillar === p);
+    plMount(nx ? nx.pillar : null); try { SFX.tick(); } catch (e) {}
+    if (d[p] && n === S.items.length) toast("Đã đọc đủ " + n + " trụ cột hôm nay ✦");
+  });
+}
+{ const o = renderToday; renderToday = nodes => { const r = o(nodes); try { plMount(); } catch (e) { console.warn(e); } return r; }; }
+{ const o = brainContext; brainContext = () => { let s = o(); try { const S = pillarSet(); if (S) s += `\n\n7 BÀI TRỤ CỘT (${S.date}):\n` + S.items.map(x => `- ${PM[x.pillar]}: ${x.title}. ${x.idea || ""} Làm ngay: ${x.action || ""}`).join("\n"); } catch (e) {} return s; }; }
+
+const ASKG = [["Về anh", ["Tuần này tôi nghĩ nhiều nhất về điều gì?", "Tôi đang mâu thuẫn với chính mình ở đâu?", "Điểm mù lớn nhất của tôi là gì?"]],
+  ["7 trụ cột", ["Tóm tắt 7 bài trụ cột hôm nay cho tôi", "Trụ cột nào tôi đang bỏ quên?", "Việc nhỏ nào trong 7 trụ cột nên làm trước hôm nay?"]],
+  ["Công việc", ["Ý marketing nào trong não đáng áp dụng tuần này?", "Tôi đã ghi gì về đội nhóm gần đây?"]],
+  ["Quyết định", ["Nếu là tôi, tôi sẽ quyết định thế nào về việc này: …"]]];
+function askMode() { const m = $("#akm"), w = $("#akw"); if (!m) return; m.classList.toggle("on", !!sample); m.textContent = sample ? "CLAUDE ĐANG SUY LUẬN" : "CHẾ ĐỘ TÌM Ý"; if (w) w.hidden = !!sample; }
+function askCounts() { const h = $(".askHero"); if (!h) return; const ns = allNodes(); h.querySelector('[data-ak="n"]').textContent = ns.filter(n => n.src === "note").length; h.querySelector('[data-ak="r"]').textContent = ns.filter(n => n.src !== "note").length; }
+function renderAskHist() {
+  const el = $("#askHist"); if (!el) return; const h = ls.get("sb_askh", []);
+  el.innerHTML = h.length ? `<div class="sec">Câu đã hỏi gần đây</div><div class="ahl">${h.map((x, i) => `<button type="button" class="ahi" data-i="${i}"><b>${esc(x.q)}</b><small>${new Date(x.at).toLocaleString("vi-VN", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}</small></button>`).join("")}</div>` : "";
+  el.querySelectorAll(".ahi").forEach(b => b.onclick = () => { const x = ls.get("sb_askh", [])[+b.dataset.i]; if (!x) return; const ch = $("#chat"); ch.insertAdjacentHTML("beforeend", `<div class="msg u">${esc(x.q)}</div><div class="msg a">${x.a}</div>`); const a = ch.lastElementChild; a.querySelectorAll("a[data-id]").forEach(y => y.onclick = ev => { ev.preventDefault(); showNode(y.dataset.id); }); a.scrollIntoView({ block: "nearest", behavior: "smooth" }); });
+}
+function askPlus() {
+  const v = $("#v-hoi"); if (!v || v.querySelector(".askHero") || !$("#askT")) return;
+  const row = $("#askT").closest(".row"), noteRow = $("#askNote").parentNode, vrow = v.querySelector(".askv"), intro = v.querySelector(":scope > p.muted");
+  const hero = document.createElement("div"); hero.className = "askHero";
+  hero.innerHTML = `<div class="kicker"><span>HỎI NÃO</span><span class="akm" id="akm"></span></div><h3>Hỏi bộ não của anh</h3>
+    <p class="muted">Câu trả lời dựa trên <b data-ak="n">0</b> ý anh đã ghi, <b data-ak="r">0</b> kiến thức đã nạp, hồ sơ tư duy và 7 trụ cột. Cuối mỗi câu trả lời có mục “Dựa trên” để anh mở lại đúng ý gốc.</p>
+    <p class="akw" id="akw">Ở link ngoài claude.ai, bộ não chỉ tìm ra các ý gần nhất với câu hỏi. Mở bản trong claude.ai để được trả lời đầy đủ.</p>`;
+  hero.appendChild(row); hero.appendChild(noteRow); if (vrow) hero.appendChild(vrow);
+  if (intro) intro.remove(); v.insertBefore(hero, v.firstChild);
+  $("#askT").placeholder = "Hỏi một quyết định, một băn khoăn… (Enter để hỏi)";
+  $("#askT").addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey && !e.metaKey && !e.ctrlKey && !e.isComposing) { e.preventDefault(); ask(); } });
+  $("#askBtn").textContent = "Hỏi não"; $("#askBtn").onclick = () => ask();
+  const sg = $("#sugs"); const wrap = document.createElement("div"); wrap.className = "sgg"; sg.parentNode.insertBefore(wrap, sg); sg.remove();
+  wrap.innerHTML = `<div id="sugs">${ASKG.map(([t, qs]) => `<small>${esc(t)}</small><div class="sugs">${qs.map(q => `<button type="button" class="sug">${esc(q)}</button>`).join("")}</div>`).join("")}</div>`;
+  wrap.querySelectorAll(".sug").forEach(b => b.onclick = () => { const t = b.textContent; if (/…$/.test(t)) { $("#askT").value = t.replace("…", ""); $("#askT").focus(); } else { $("#askT").value = t; ask(); } });
+  const hs = document.createElement("div"); hs.id = "askHist"; $("#chat").after(hs);
+  askMode(); askCounts(); renderAskHist(); setTimeout(askMode, 2500); setTimeout(askMode, 6000);
+}
+{ const o = renderAsk; renderAsk = () => { o(); try { askPlus(); } catch (e) { console.warn(e); } }; }
+try { askPlus(); } catch (e) { console.warn(e); }
+{ const o = renderStats; renderStats = (...a) => { const r = o(...a); try { askCounts(); } catch (e) {} return r; }; }
+{ const o = ask; ask = async () => {
+  const t = $("#askT"), q = t ? t.value.trim() : ""; if (!q) return o();
+  const ch = $("#chat"), before = ch ? ch.querySelectorAll(".msg.a").length : 0;
+  await o();
+  try {
+    const all = ch.querySelectorAll(".msg.a"), a = all[all.length - 1]; if (!a || all.length === before) return;
+    if (sample && !a.querySelector(".asrc")) { const rel = relatedFor(q, null, 4); if (rel.length) { a.insertAdjacentHTML("beforeend", `<div class="asrc"><small>Dựa trên</small>${rel.map(n => `<a href="#" data-id="${esc(n.id)}">${esc(String(n.title || "").slice(0, 48))}</a>`).join("")}</div>`); a.querySelectorAll(".asrc a").forEach(x => x.onclick = ev => { ev.preventDefault(); showNode(x.dataset.id); }); } }
+    const html = a.innerHTML.replace(/<button[^>]*>.*?<\/button>/g, "").slice(0, 6000);
+    if (/Đã dừng|chưa cho phép|Chưa trả lời được|hết lượt/.test(html) && html.length < 300) return;
+    const h = ls.get("sb_askh", []).filter(x => x.q !== q); h.unshift({ q, a: html, at: Date.now() }); ls.set("sb_askh", h.slice(0, 20)); renderAskHist();
+  } catch (e) {}
+}; }
 
 setTimeout(() => { $("#boot").classList.add("off"); document.querySelectorAll(".rail,.top .hello,.k,.legend,.panel,.capture").forEach((el, i) => { el.classList.add("rv"); el.style.animationDelay = (0.5 + i * 0.06) + "s"; }); }, galOn() ? 2700 : 900);
 if (!brain.updatedAt) setSync("wait", "Đang kết nối Drive…"); else setSync("wait", "Đang đồng bộ…");
