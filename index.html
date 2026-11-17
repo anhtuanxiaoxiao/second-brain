@@ -795,6 +795,10 @@ body.v-map #vmap{display:block}body.v-jour #vjour{display:block}
 #vmapTip{position:absolute;z-index:6;pointer-events:none;max-width:280px;padding:9px 12px;border-radius:10px;background:rgba(10,14,21,.92);border:1px solid rgba(255,255,255,.16);color:var(--ink);font-size:12.5px;line-height:1.45;opacity:0;transition:opacity .15s;transform:translate(14px,14px)}
 #vmapTip.on{opacity:1}
 #vmapTip b{display:block;font-weight:500;margin-bottom:2px}#vmapTip small{color:var(--faint)}
+body:not(.gal) #vmap,body:not(.gal) #vjour{z-index:3}
+body:not(.gal) .jin{margin-left:110px;margin-right:450px;width:auto;max-width:720px}
+body:not(.gal) #vmapT{left:100px;top:126px}
+body:not(.gal) #vmapH{right:450px;top:126px}
 #vmapH{position:absolute;right:56px;top:134px;z-index:5;font-size:11.5px;color:var(--faint);text-align:right;line-height:1.6;max-width:220px}
 #vmapH kbd{font:inherit;font-size:10.5px;padding:1px 5px;border:1px solid rgba(255,255,255,.2);border-radius:4px;color:var(--dim)}
 #vjour{overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
@@ -880,6 +884,7 @@ body.gal #tplP{filter:invert(1) hue-rotate(180deg)}
   #vmapT .mm button{padding:4px 9px;font-size:10.5px}
   #vmapH{display:none}
   .jin{padding:120px 0 200px;width:calc(100% - 24px)}
+  body:not(.gal) .jin{margin:0 auto;width:calc(100% - 24px)}
   .jtop h2{font-size:27px}
   .insg{grid-template-columns:1fr}
 }
@@ -3661,9 +3666,9 @@ function mapFit() {
   if (!MP.n.length) return; let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; const used = new Set(MP.n.map(p => mapKey(p.n)));
   MP.n.forEach(p => { x0 = Math.min(x0, p.x); y0 = Math.min(y0, p.y); x1 = Math.max(x1, p.x); y1 = Math.max(y1, p.y); });
   for (const k in MP.anchors) { if (!used.has(k)) continue; const a = MP.anchors[k]; x0 = Math.min(x0, a.x - 60); x1 = Math.max(x1, a.x + 60); y0 = Math.min(y0, a.y - 130); y1 = Math.max(y1, a.y); }
-  const top = MOB ? 200 : 150, bot = MOB ? 250 : 160, side = MOB ? 16 : 300;
-  const bw = Math.max(80, x1 - x0 + 60), bh = Math.max(80, y1 - y0 + 40), aw = Math.max(200, MP.w - side * 2), ah = Math.max(200, MP.h - top - bot);
-  MP.z = Math.min(1.6, Math.min(aw / bw, ah / bh)); MP.tx = -(x0 + x1) / 2 * MP.z; MP.ty = -(y0 + y1) / 2 * MP.z + ((top + MP.h - bot) / 2 - MP.h / 2);
+  const top = MOB ? 200 : 150, bot = MOB ? 250 : (galOn() ? 160 : 200), sl = MOB ? 16 : (galOn() ? 300 : 120), sr = MOB ? 16 : (galOn() ? 300 : 450);
+  const bw = Math.max(80, x1 - x0 + 60), bh = Math.max(80, y1 - y0 + 40), aw = Math.max(200, MP.w - sl - sr), ah = Math.max(200, MP.h - top - bot);
+  MP.z = Math.min(1.6, Math.min(aw / bw, ah / bh)); MP.tx = -(x0 + x1) / 2 * MP.z + ((sl + MP.w - sr) / 2 - MP.w / 2); MP.ty = -(y0 + y1) / 2 * MP.z + ((top + MP.h - bot) / 2 - MP.h / 2);
 }
 function mapMatch(n) { if (!MP.q) return true; return fold((n.title || "") + " " + (n.text || "") + " " + (n.tags || []).join(" ")).includes(MP.q); }
 function mapDraw() {
@@ -3681,13 +3686,13 @@ function mapDraw() {
   ctx.stroke();
   if (MP.hov != null) { const p = MP.n[MP.hov]; ctx.strokeStyle = "rgba(255,255,255,.45)"; ctx.lineWidth = 1.4 / MP.z; ctx.beginPath(); for (const [a, b] of MP.e) { if (a !== MP.hov && b !== MP.hov) continue; const q = MP.n[a === MP.hov ? b : a]; ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); } ctx.stroke(); }
   /* nút */
-  const top = [...MP.n.keys()].sort((a, b) => (MP.deg[b] || 0) - (MP.deg[a] || 0)).slice(0, MOB ? 10 : 22), topS = new Set(top);
+  const top = [...MP.n.keys()].sort((a, b) => (MP.deg[b] || 0) - (MP.deg[a] || 0)).slice(0, MOB ? 8 : 14), topS = new Set(top);
   for (let i = 0; i < MP.n.length; i++) { const p = MP.n[i], m = mapMatch(p.n), hv = i === MP.hov; ctx.globalAlpha = m ? 1 : .1; ctx.fillStyle = col(p.n); if (hv || (p.r > 5 && m)) { ctx.shadowBlur = 14; ctx.shadowColor = col(p.n); } ctx.beginPath(); ctx.arc(p.x, p.y, p.r * (hv ? 1.5 : 1), 0, Math.PI * 2); ctx.fill(); ctx.shadowBlur = 0; if (p.n.src === "note") { ctx.strokeStyle = "rgba(255,255,255,.6)"; ctx.lineWidth = .8 / MP.z; ctx.stroke(); } }
   ctx.globalAlpha = 1;
   /* nhãn */
   ctx.font = `${11.5 / MP.z}px "Be Vietnam Pro",system-ui,sans-serif`; ctx.textAlign = "left"; ctx.shadowColor = "rgba(0,0,0,.9)"; ctx.shadowBlur = 6 / MP.z;
   const qn = MP.q ? MP.n.filter(p => mapMatch(p.n)).length : 0, qLab = MP.q && (qn <= (MOB ? 14 : 40) || MP.z > 1.3);
-  for (let i = 0; i < MP.n.length; i++) { const p = MP.n[i], m = mapMatch(p.n); if (!(i === MP.hov || (topS.has(i) && m && MP.z > .45) || (qLab && m))) continue; ctx.fillStyle = i === MP.hov ? "#fff" : "rgba(238,241,248,.85)"; ctx.fillText(String(p.n.title || "").slice(0, 34), p.x + p.r + 4 / MP.z, p.y + 4 / MP.z); }
+  for (let i = 0; i < MP.n.length; i++) { const p = MP.n[i], m = mapMatch(p.n); if (!(i === MP.hov || (topS.has(i) && m && MP.z > .45) || (qLab && m))) continue; ctx.fillStyle = i === MP.hov ? "#fff" : "rgba(238,241,248,.85)"; ctx.fillText(String(p.n.title || "").slice(0, 30), p.x + p.r + 4 / MP.z, p.y + 4 / MP.z); }
   ctx.shadowBlur = 0;
 }
 function mapLoop() {
