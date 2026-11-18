@@ -888,6 +888,87 @@ body.gal #tplP{filter:invert(1) hue-rotate(180deg)}
   .jtop h2{font-size:27px}
   .insg{grid-template-columns:1fr}
 }
+/* ===== v15 LAB: đọc tập trung, có gì mới, lịch thói quen, phòng nghiên cứu ===== */
+#reader{position:fixed;inset:0;z-index:85;display:none;background:#f5f1ea;color:#1c1b19;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;font-family:"Be Vietnam Pro",system-ui,sans-serif}
+#reader.on{display:block;animation:xin .35s ease}
+#reader .rdp{position:fixed;left:0;top:0;height:3px;background:#1c1b19;width:0;z-index:2;transition:width .15s linear}
+#reader .rdt{position:sticky;top:0;z-index:1;display:flex;align-items:center;gap:8px;padding:14px 20px;background:linear-gradient(#f5f1ea 70%,rgba(245,241,234,0))}
+#reader .rdt .rdsp{flex:1}
+#reader .rdt button{font:inherit;font-size:12.5px;letter-spacing:.04em;padding:8px 14px;border-radius:999px;border:1px solid rgba(28,27,25,.25);background:transparent;color:#1c1b19;cursor:pointer;white-space:nowrap}
+#reader .rdt button.pr{background:#1c1b19;color:#f5f1ea;border-color:#1c1b19}
+#reader .rdt button.on{background:#ffb454;border-color:#ffb454}
+#reader .rdt .rdx{width:36px;height:36px;padding:0;display:grid;place-items:center;font-size:18px}
+#reader .rdi{max-width:680px;margin:0 auto;padding:28px 22px 120px}
+#reader .rdk{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(28,27,25,.55);font-weight:600;display:flex;gap:10px;flex-wrap:wrap}
+#reader h1{font-family:var(--serif),Georgia,serif;font-weight:400;font-size:clamp(30px,5vw,44px);line-height:1.12;letter-spacing:-.015em;margin:14px 0 26px}
+#reader p.rdl{font-size:19px;line-height:1.72;margin:0 0 20px;font-weight:300}
+#reader p.rdl:first-of-type::first-letter{font-family:var(--serif),Georgia,serif;font-size:3.1em;float:left;line-height:.85;padding:6px 10px 0 0}
+#reader .rds{display:flex;gap:18px;align-items:baseline;border-top:1px solid rgba(28,27,25,.15);border-bottom:1px solid rgba(28,27,25,.15);padding:18px 0;margin:26px 0}
+#reader .rds b{font-family:var(--serif),Georgia,serif;font-weight:500;font-size:52px;line-height:1;letter-spacing:-.02em}
+#reader .rds span{font-size:15px;line-height:1.5;color:rgba(28,27,25,.75)}
+#reader .rdb{border-left:2px solid #1c1b19;padding:6px 0 6px 18px;margin:28px 0}
+#reader .rdb small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:rgba(28,27,25,.55);margin-bottom:6px}
+#reader .rdb p{font-size:18px;line-height:1.6;margin:0}
+#reader .rdb.q{border-color:#b48cff}#reader .rdb.a{border-color:#4fc3ff}
+#reader textarea{width:100%;box-sizing:border-box;margin-top:12px;font:inherit;font-size:15px;line-height:1.55;padding:12px 14px;border-radius:10px;border:1px solid rgba(28,27,25,.25);background:rgba(255,255,255,.55);color:#1c1b19;resize:vertical;min-height:80px}
+#reader .rdf{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:30px;padding-top:20px;border-top:1px solid rgba(28,27,25,.15)}
+#reader .rdf a{color:#1c1b19;font-size:14px}
+#reader .rdf .rdsp{flex:1}
+#reader .rdf button{font:inherit;font-size:14px;padding:11px 20px;border-radius:999px;border:1px solid #1c1b19;background:#1c1b19;color:#f5f1ea;cursor:pointer}
+#reader .rdf button.g{background:transparent;color:#1c1b19}
+#reader .rdnav{display:flex;justify-content:space-between;gap:10px;margin-top:22px;font-size:13px}
+#reader .rdnav button{font:inherit;font-size:13px;background:none;border:0;color:rgba(28,27,25,.7);cursor:pointer;text-align:left;max-width:48%}
+#reader .rdnav button b{display:block;color:#1c1b19;font-weight:500}
+@media (prefers-reduced-motion:reduce){#reader.on{animation:none}}
+/* có gì mới */
+#wn{position:fixed;inset:0;z-index:86;display:none;background:rgba(3,4,11,.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);overflow:auto}
+#wn.on{display:flex;align-items:center;justify-content:center;padding:20px;animation:xin .35s ease}
+#wn .wb{width:min(760px,100%);background:#0f1420;border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:26px 26px 20px;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+#wn .wb .kicker{color:#ffb454}
+#wn h2{font-family:var(--serif);font-weight:400;font-size:30px;margin:8px 0 4px;letter-spacing:-.01em}
+#wn .wd{color:var(--dim);font-size:14px;margin:0 0 18px;line-height:1.55}
+#wn .wg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+#wn .wc{border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:13px 14px;background:rgba(255,255,255,.03);display:flex;flex-direction:column;gap:6px}
+#wn .wc i{font-style:normal;font-size:20px}
+#wn .wc b{font-weight:500;font-size:14px}
+#wn .wc p{margin:0;font-size:12.5px;color:var(--dim);line-height:1.5;flex:1}
+#wn .wc button{align-self:flex-start;font:inherit;font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:var(--ink);cursor:pointer;margin-top:4px}
+#wn .wf{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px;flex-wrap:wrap}
+#wn .wf small{color:var(--faint);font-size:12px}
+#wn .wf button{font:inherit;font-size:13.5px;padding:10px 20px;border-radius:999px;border:0;background:var(--ink);color:#0a0e15;cursor:pointer}
+body.gal #wn .wb{filter:invert(1) hue-rotate(180deg);background:#0a0e15}
+/* lịch thói quen */
+.hab .kicker{color:#5cf2a8}
+.habs{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 12px}
+.habs div{font-size:12px;color:var(--faint)}.habs b{display:block;font-family:var(--serif);font-weight:500;font-size:22px;color:var(--ink);line-height:1.1}
+.habg{display:grid;grid-template-rows:repeat(7,14px);grid-auto-flow:column;grid-auto-columns:14px;gap:3px;overflow-x:auto;padding-bottom:4px}
+.habc{width:14px;height:14px;border-radius:3px;background:rgba(255,255,255,.06);position:relative;cursor:default}
+.habc.l1{background:rgba(125,243,255,.28)}.habc.l2{background:rgba(125,243,255,.5)}.habc.l3{background:rgba(125,243,255,.75)}.habc.l4{background:#7df3ff}
+.habc.td{outline:1.5px solid rgba(255,255,255,.7);outline-offset:1px}
+.habc.f{opacity:.25}
+.habc i{position:absolute;width:5px;height:5px;border-radius:50%}
+.habc i.ck{right:1px;bottom:1px;background:#ffb454}.habc i.pl{left:1px;bottom:1px;background:#5cf2a8}.habc i.ls{left:1px;top:1px;background:#b48cff}
+.habl{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--faint);margin-top:10px}
+.habl i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.habw{display:flex;gap:3px;margin-top:4px;font-size:10px;color:var(--faint)}
+/* phòng nghiên cứu */
+.wkh{border:1px solid var(--line);border-radius:16px;padding:16px;margin:0 0 12px;background:linear-gradient(160deg,rgba(223,252,255,.07),rgba(180,140,255,.05))}
+.wkh .kicker{color:var(--cyan)}
+.wkh h2{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.25;margin:8px 0 6px}
+.wkh>p{margin:0 0 10px;font-size:13.5px;line-height:1.6;color:var(--dim)}
+.wkn{display:flex;gap:16px;margin:10px 0}
+.wkn div{font-size:11.5px;color:var(--faint)}.wkn b{display:block;font-family:var(--serif);font-weight:500;font-size:22px;color:var(--ink);line-height:1.1}
+.wk3{border-top:1px solid var(--line);margin-top:8px}
+.wk3 small{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:10px 0 2px}
+.wk3 a.t3{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);cursor:pointer;color:var(--ink);text-decoration:none}
+.wk3 a.t3:first-of-type{border-top:0}
+.wk3 a.t3 b{font-family:var(--serif);font-weight:500;font-size:16px;color:var(--cyan);min-width:22px}
+.wk3 a.t3 div{flex:1}.wk3 a.t3 strong{display:block;font-weight:500;font-size:13.5px;line-height:1.4}.wk3 a.t3 span{font-size:12px;color:var(--dim)}
+.wkb{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.wks{font-size:12px;color:var(--faint);margin:0 0 12px;display:flex;gap:8px;align-items:center}
+.wks i{width:7px;height:7px;border-radius:50%;background:#5cf2a8;box-shadow:0 0 8px #5cf2a8;display:inline-block}
+.wks i.w{background:#ffb454;box-shadow:0 0 8px #ffb454}
+@media (max-width:820px){#reader .rdi{padding:18px 16px 110px}#wn.on{padding:10px;align-items:flex-end}#wn .wb{padding:20px 16px 16px;border-radius:18px 18px 0 0;max-height:88vh;overflow:auto}}
 .msg .rd{background:none;border:0;color:var(--faint);cursor:pointer;font-size:12px;margin-top:6px;padding:0}
 @media (max-width:820px){#rel{bottom:150px}#srs .fi{min-height:330px}}
 
@@ -2181,7 +2262,7 @@ function renderToday(nodes) {
       ${pts.length ? `<ul class="lpts">${pts.map((p, i) => `<li class="${i > 2 ? "x" : ""}"><span>${i + 1}</span>${esc(p)}</li>`).join("")}</ul>` : ""}
       ${L.action ? `<div class="act"><b>VIỆC NHỎ HÔM NAY</b>${esc(L.action)}</div>` : ""}
       <div class="lmore">${L.question ? `<div class="q"><b>CÂU HỎI PHẢN BIỆN</b>${esc(L.question)}</div>` : ""}</div>
-      <div class="lfoot">${L.url ? `<a href="${esc(L.url)}" target="_blank" rel="noopener">Nguồn: ${esc(L.source || "mở link")} ↗</a>` : `<span>${L.source ? "Nguồn: " + esc(L.source) : ""}</span>`}${pts.length > 3 || L.question ? `<button class="btnw" type="button" id="lmoreBtn">Đọc đầy đủ</button>` : ""}</div>
+      <div class="lfoot">${L.url ? `<a href="${esc(L.url)}" target="_blank" rel="noopener">Nguồn: ${esc(L.source || "mở link")} ↗</a>` : `<span>${L.source ? "Nguồn: " + esc(L.source) : ""}</span>`}<button class="btnw" type="button" id="lreadBtn">Đọc tập trung</button>${pts.length > 3 || L.question ? `<button class="btnw" type="button" id="lmoreBtn" style="background:transparent;color:var(--ink);border:1px solid var(--line2)">Đọc đầy đủ</button>` : ""}</div>
     </div>`;
     if (done[L.date]) h += `<div class="card"><span class="muted">✓ Anh đã học bài này${done[L.date] > 0 ? " · " + "★".repeat(done[L.date]) : ""}. Bộ não sẽ dùng phản hồi để chọn bài tiếp theo.</span></div>`;
     else h += `<div class="card"><div class="row" style="justify-content:space-between"><span class="muted">Bài này hữu ích đến đâu?</span><div class="stars" id="stars">${[1, 2, 3, 4, 5].map(i => `<button type="button" data-r="${i}" class="${i <= rating ? "on" : ""}">★</button>`).join("")}</div></div>
@@ -2351,7 +2432,7 @@ function renderResearch() {
   const R = brain.research || [];
   const dirs = [...new Set(R.map(r => r.dir).filter(Boolean))];
   const q = fold(resQ).trim();
-  const list = R.filter(r => (resFilter === "all" || r.dir === resFilter) && (!q || fold(r.title + " " + (r.summary || "") + " " + (r.dir || "")).includes(q)));
+  const list = R.filter(r => (resFilter === "all" || (resFilter === "__wk" ? String(r.date || "") >= dAgo(6) : r.dir === resFilter)) && (!q || fold(r.title + " " + (r.summary || "") + " " + (r.dir || "")).includes(q)));
   const wk = brain.weekly || null;
   $("#v-nghien-cuu").innerHTML = `<div class="sec" style="margin-top:0">Định hướng</div>
     <div class="row">${(brain.directions || []).map(d => `<span class="pill"><i style="background:var(--cyan)"></i>${esc(d)}</span>`).join("")}</div>
@@ -2360,7 +2441,7 @@ function renderResearch() {
     ${wk ? `<div class="sec">Đợt nghiên cứu lớn gần nhất</div><div class="card lesson"><div class="kicker"><span>${fmtD(wk.date)}</span></div><h2 style="font-size:17px">${esc(wk.title)}</h2><p>${esc(wk.summary)}</p>${wk.docUrl ? `<a href="${esc(wk.docUrl)}" target="_blank" rel="noopener">Mở báo cáo đầy đủ ↗</a>` : ""}${wk.extraDocUrl ? `<br><a href="${esc(wk.extraDocUrl)}" target="_blank" rel="noopener">Báo cáo bổ sung ↗</a>` : ""}</div>` : ""}
     <div class="sec">Kiến thức đã nạp · ${R.length}</div>
     <input class="in" id="resQ" placeholder="Tìm trong kiến thức đã nạp…" value="${esc(resQ)}" style="margin-bottom:8px">
-    ${dirs.length ? `<div class="sugs">${["all", ...dirs].map(d => `<button type="button" class="sug ${d === resFilter ? "on" : ""}" data-d="${esc(d)}" style="${d === resFilter ? "color:#fff;border-color:var(--line2)" : ""}">${d === "all" ? "Tất cả" : esc(d)}</button>`).join("")}</div>` : ""}
+    ${dirs.length ? `<div class="sugs">${["all", "__wk", ...dirs].map(d => `<button type="button" class="sug ${d === resFilter ? "on" : ""}" data-d="${esc(d)}" style="${d === resFilter ? "color:#fff;border-color:var(--line2)" : ""}">${d === "all" ? "Tất cả" : d === "__wk" ? "Tuần này" : esc(d)}</button>`).join("")}</div>` : ""}
     ${list.length ? `<div class="list">${list.slice(0, resN).map(r => `<div class="it" data-id="${esc(r.nodeId || "")}"><span class="dt" style="background:#dffcff"></span><div><div class="tt">${esc(r.title)}</div><div class="mt">${fmtD(r.date)} · ${esc(r.dir || "")}</div><div class="muted" style="font-size:13px;margin-top:4px">${esc(r.summary || "")}</div>${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener" style="font-size:12.5px">Nguồn ↗</a>` : ""}</div></div>`).join("")}</div>
     ${list.length > resN ? `<div class="row" style="justify-content:center;margin-top:10px"><button type="button" class="btn ghost" id="resMore">Xem thêm (${list.length - resN})</button></div>` : ""}` : `<p class="muted">${R.length ? "Không có mục nào khớp." : "Chưa có. Đợt nghiên cứu đầu tiên sẽ nạp kiến thức về Marketing, Lãnh đạo và 7 trụ cột wellbeing."}</p>`}`;
   const v = $("#v-nghien-cuu");
@@ -2987,7 +3068,7 @@ function showMorning(force) {
     <div class="ma"><button class="btn ghost" type="button" id="mGo">Đọc bài ngay</button><button class="btn" type="button" id="mOk">Bắt đầu ngày ✦</button></div>
     <div class="hint2">VUỐT LÊN HOẶC BẤM ĐỂ VÀO THIÊN HÀ</div></div>`;
   m.classList.add("on"); SFX.whoosh();
-  $("#mOk").onclick = () => hideMorning(); $("#mGo").onclick = () => { hideMorning(); goCard("#lessonCard"); };
+  $("#mOk").onclick = () => hideMorning(); $("#mGo").onclick = () => { hideMorning(); if (brain.lesson) openReader(brain.lesson); else goCard("#lessonCard"); };
   let y0 = null; m.ontouchstart = e => { y0 = e.touches[0].clientY; }; m.ontouchend = e => { if (y0 != null && y0 - e.changedTouches[0].clientY > 60) hideMorning(); y0 = null; };
 }
 function hideMorning() { const m = $("#morn"); if (!m) return; ls.set("sb_morning", vnDate()); m.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-40px)" }], { duration: 500, easing: "ease-in" }).onfinish = () => m.classList.remove("on"); }
@@ -3864,6 +3945,109 @@ const TPL = [["Quyết định", "ghi rõ lựa chọn và vì sao", "Quyết đ
   document.addEventListener("click", e => { if (!e.target.closest("#tplP,.tplb")) pop.classList.remove("on"); });
 })();
 try { const sv = ls.get("sb_view", "uni"); if (sv === "jour" || sv === "map") setTimeout(() => { if (view === "uni") setView(sv); }, 3400); } catch (e) {}
+
+/* ===== v15 LAB ===== */
+const WN_VER = "15";
+/* ---- đọc tập trung ---- */
+let rdOn = false, rdT = 0;
+function lessonList() { const a = [...(brain.lessons || [])]; if (brain.lesson && !a.some(l => l.date === brain.lesson.date)) a.unshift(brain.lesson); return a.filter(l => l && l.title).sort((x, y) => String(y.date).localeCompare(String(x.date))); }
+function openReader(L) {
+  if (!L) return; let el = $("#reader");
+  if (!el) { el = document.createElement("div"); el.id = "reader"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Đọc bài học"); document.body.appendChild(el); }
+  const parts = String(L.idea || "").replace(/\s+/g, " ").split(/([.!?…]+)\s+/), ss = [];
+  for (let i = 0; i < parts.length; i += 2) { const x = (parts[i] + (parts[i + 1] || "")).trim(); if (x.length > 2) ss.push(x); }
+  const si = ss.findIndex(x => /\d+([.,]\d+)?\s?%/.test(x)), statM = si >= 0 ? ss[si].match(/\d+([.,]\d+)?\s?%/)[0].replace(/\s/, "") : null;
+  const paras = []; let cur = []; ss.forEach((x, i) => { if (i === si) return; cur.push(x); if (cur.length === 2) { paras.push(cur.join(" ")); cur = []; } }); if (cur.length) paras.push(cur.join(" "));
+  const mins = Math.max(2, Math.round(String(L.idea || "").split(/\s+/).length / 180) + 1), learned = ls.get("sb_learned", {}), all = lessonList(), ix = all.findIndex(l => l.date === L.date), prev = all[ix + 1], next = ix > 0 ? all[ix - 1] : null;
+  el.innerHTML = `<div class="rdp"></div><div class="rdt"><button type="button" class="rdx" data-r="close" aria-label="Đóng">✕</button><span class="rdsp"></span><button type="button" data-r="tts">▶ Nghe bài</button>${learned[L.date] ? `<button type="button" class="pr" disabled>Đã học ✓</button>` : `<button type="button" class="pr" data-r="done">Đã học ✓</button>`}</div>
+  <div class="rdi"><div class="rdk"><span>Bài học · ${fmtD(L.date)}</span>${L.pillar && PM[L.pillar] ? `<span>${esc(PM[L.pillar])}</span>` : ""}<span>${mins} phút</span></div><h1>${esc(L.title)}</h1>
+  ${paras.slice(0, 1).map(x => `<p class="rdl">${esc(x)}</p>`).join("")}
+  ${statM ? `<div class="rds"><b>${esc(statM)}</b><span>${esc(statText(ss[si], statM))}</span></div>` : ""}
+  ${paras.slice(1).map(x => `<p class="rdl">${esc(x)}</p>`).join("")}
+  ${L.question ? `<div class="rdb q"><small>Câu hỏi phản biện</small><p>${esc(L.question)}</p><textarea id="rdRef" rows="3" placeholder="Anh nghĩ gì? Viết vài dòng, em sẽ lưu vào não như một câu trả lời phản tư."></textarea></div>` : ""}
+  ${L.action ? `<div class="rdb a"><small>Việc nhỏ hôm nay</small><p>${esc(L.action)}</p></div>` : ""}
+  <div class="rdf">${L.url ? `<a href="${esc(L.url)}" target="_blank" rel="noopener">Nguồn: ${esc(L.source || "mở link")} ↗</a>` : `<span>${L.source ? "Nguồn: " + esc(L.source) : ""}</span>`}<span class="rdsp"></span>${L.question ? `<button type="button" class="g" data-r="save">Lưu câu trả lời</button>` : ""}<button type="button" data-r="back">Về thẻ bài học</button></div>
+  <div class="rdnav">${prev ? `<button type="button" data-rd="${esc(prev.date)}">← Bài trước<b>${esc(String(prev.title).slice(0, 48))}</b></button>` : "<span></span>"}${next ? `<button type="button" data-rd="${esc(next.date)}" style="text-align:right">Bài sau →<b>${esc(String(next.title).slice(0, 48))}</b></button>` : ""}</div></div>`;
+  el.classList.add("on"); rdOn = true; el.scrollTop = 0; document.body.style.overflow = "hidden";
+  const prog = el.querySelector(".rdp"); el.onscroll = () => { const m = el.scrollHeight - el.clientHeight; prog.style.width = (m > 0 ? Math.min(100, el.scrollTop / m * 100) : 100) + "%"; };
+  const tts = el.querySelector('[data-r="tts"]'); let sp = false;
+  tts.onclick = () => { if (sp) { try { speechSynthesis.cancel(); } catch (e) {} sp = false; tts.textContent = "▶ Nghe bài"; tts.classList.remove("on"); return; } if (!("speechSynthesis" in window)) { toast("Máy này chưa đọc được bằng giọng nói."); return; } sp = true; tts.textContent = "■ Dừng"; tts.classList.add("on"); try { speak(L.title + ". " + String(L.idea || "") + (L.question ? " Câu hỏi: " + L.question : "") + (L.action ? " Việc nhỏ: " + L.action : "")); } catch (e) {} clearInterval(rdT); rdT = setInterval(() => { if (sp && !speechSynthesis.speaking) { sp = false; tts.textContent = "▶ Nghe bài"; tts.classList.remove("on"); clearInterval(rdT); } }, 700); };
+  const close = () => { el.classList.remove("on"); rdOn = false; document.body.style.overflow = ""; try { if (sp) speechSynthesis.cancel(); } catch (e) {} };
+  el.querySelector('[data-r="close"]').onclick = close;
+  el.querySelector('[data-r="back"]').onclick = () => { close(); goCard("#lessonCard"); };
+  const dn = el.querySelector('[data-r="done"]'); if (dn) dn.onclick = () => { close(); goCard("#lessonCard"); setTimeout(() => { const b = $("#learnBtn"); if (b) { b.animate([{ transform: "scale(1)" }, { transform: "scale(1.08)" }, { transform: "scale(1)" }], { duration: 600 }); } }, 700); toast("Đánh giá sao rồi bấm Đã học ở thẻ bài học nhé."); };
+  const sv = el.querySelector('[data-r="save"]'); if (sv) sv.onclick = async () => { const t = ($("#rdRef") || {}).value || ""; if (!t.trim()) { $("#rdRef").focus(); return; } sv.disabled = true; sv.textContent = "Đang lưu…"; try { await saveThought("note", "Trả lời câu hỏi “" + L.question + "”: " + t.trim(), "Phản tư: " + String(L.title).slice(0, 50), ["phan-tu"], "bai-hoc"); toast("Đã lưu câu trả lời vào não ✦"); sv.textContent = "Đã lưu ✓"; } catch (e) { sv.disabled = false; sv.textContent = "Lưu câu trả lời"; } };
+  el.querySelectorAll("[data-rd]").forEach(b => b.onclick = () => { const L2 = all.find(l => l.date === b.dataset.rd); if (L2) openReader(L2); });
+  try { SFX.tick(); } catch (e) {}
+}
+addEventListener("keydown", e => { if (e.key === "Escape" && rdOn) { e.stopImmediatePropagation(); const x = document.querySelector('#reader [data-r="close"]'); if (x) x.click(); } }, true);
+{ const o = renderToday; renderToday = nodes => { const r = o(nodes); try { const b = $("#lreadBtn"); if (b) b.onclick = () => openReader(brain.lesson); } catch (e) {} return r; }; }
+document.addEventListener("click", e => { const it = e.target.closest("#v-hom-nay .list .it"); if (!it || it.dataset.id) return; const tt = it.querySelector(".tt"); if (!tt) return; const L = lessonList().find(l => l.title === tt.textContent); if (L) { e.stopImmediatePropagation(); openReader(L); } }, true);
+
+/* ---- lịch thói quen ---- */
+function habCard() {
+  const notes = noteNodes(), byD = {}; notes.forEach(n => { const d = String(n.date || "").slice(0, 10); byD[d] = (byD[d] || 0) + 1; });
+  const hist = ls.get("sb_hist", {}), pl = ls.get("sb_pl", {}), learned = ls.get("sb_learned", {}), today = vnDate();
+  const td = new Date(today + "T12:00:00+07:00"), dow0 = (td.getDay() + 6) % 7; /* Thứ hai = 0 */
+  const N = 8 * 7, start = N - 1 - (6 - dow0); const cells = [];
+  for (let i = 0; i < N; i++) { const off = start - i; const d = dAgo(off); const fut = off < 0; const n = byD[d] || 0; cells.push({ d, n, fut, ck: (hist[d] || 0) >= 4, pl: Object.keys(pl[d] || {}).length >= 7, ls: !!learned[d] }); }
+  const ti = N - 1 - (6 - dow0), wk = cells.slice(ti - dow0, ti + 1), lw = cells.slice(ti - dow0 - 7, ti - dow0);
+  const sum = a => a.reduce((s, c) => s + c.n, 0), cks = cells.filter(c => c.ck).length, pls = cells.filter(c => c.pl).length;
+  const lvl = n => n === 0 ? "" : n === 1 ? "l1" : n <= 3 ? "l2" : n <= 6 ? "l3" : "l4";
+  const W = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"];
+  return `<div class="card hab" id="habCard"><div class="kicker"><span>LỊCH THÓI QUEN · 8 TUẦN</span><span style="color:var(--faint)">${fmtD(cells[0].d)} → hôm nay</span></div>
+    <div class="habs"><div><b>${sum(wk)}</b>ý tuần này${lw.length ? ` <span style="color:${sum(wk) >= sum(lw) ? "#5cf2a8" : "#ff8f6b"}">(${sum(wk) >= sum(lw) ? "+" : ""}${sum(wk) - sum(lw)} so với tuần trước)</span>` : ""}</div><div><b>${streakN()}</b>ngày ghi liền</div><div><b>${cks}</b>ngày đạt checklist</div><div><b>${pls}</b>ngày đọc đủ 7 trụ cột</div></div>
+    <div style="display:flex;gap:6px"><div style="display:grid;grid-template-rows:repeat(7,14px);gap:3px;font-size:9.5px;color:var(--faint);line-height:14px">${W.map(w => `<span>${w}</span>`).join("")}</div><div class="habg">${cells.map(c => `<div class="habc ${lvl(c.n)} ${c.d === today ? "td" : ""} ${c.fut ? "f" : ""}" title="${fmtD(c.d)}: ${c.n} ý${c.ck ? " · đạt checklist" : ""}${c.pl ? " · đủ 7 trụ cột" : ""}${c.ls ? " · đã học bài" : ""}">${c.ck ? '<i class="ck"></i>' : ""}${c.pl ? '<i class="pl"></i>' : ""}${c.ls ? '<i class="ls"></i>' : ""}</div>`).join("")}</div></div>
+    <div class="habl"><span><i style="background:#7df3ff"></i>đậm = nhiều ý</span><span><i style="background:#ffb454"></i>đạt checklist</span><span><i style="background:#5cf2a8"></i>đủ 7 trụ cột</span><span><i style="background:#b48cff"></i>đã học bài</span></div></div>`;
+}
+function habMount() { const v = $("#v-thong-ke"); if (!v) return; const html = habCard(), old = $("#habCard"); if (old) old.outerHTML = html; else { const a = $("#insCard"); if (a && a.parentNode === v) a.insertAdjacentHTML("afterend", html); else v.insertAdjacentHTML("afterbegin", html); } }
+{ const o = renderStats; renderStats = (...a) => { const r = o(...a); try { habMount(); } catch (e) { console.warn(e); } return r; }; }
+
+/* ---- phòng nghiên cứu: thẻ đợt lớn ---- */
+function nextBig() { const now = new Date(Date.now() + 7 * 36e5), d = now.getUTCDay(), h = now.getUTCHours() + now.getUTCMinutes() / 60; let k = (3 - d + 7) % 7; if (k === 0 && h >= 21.7) k = 7; return k === 0 ? "tối nay 21:41" : k === 1 ? "tối mai 21:41" : `thứ Tư tới (${fmtD(dAgo(-k))}) 21:41`; }
+function wkHero() {
+  const wk = brain.weekly, R = brain.research || [], added = wk ? R.filter(r => r.date === wk.date).length : 0, wkN = R.filter(r => String(r.date || "") >= dAgo(6)).length;
+  const st = wk && wk.stats ? wk.stats : null, t3 = wk && Array.isArray(wk.top3) ? wk.top3.slice(0, 3) : [];
+  const status = `<p class="wks"><i class="${wk && String(wk.date) >= dAgo(7) ? "" : "w"}"></i>Đợt nghiên cứu lớn tiếp theo: ${nextBig()} · tuần này đã nạp ${wkN} kiến thức</p>`;
+  if (!wk) return status + `<div class="wkh"><div class="kicker"><span>ĐỢT NGHIÊN CỨU LỚN</span></div><h2>Chưa có đợt nào</h2><p>Tối thứ Tư bộ não chạy đợt lớn: 6 trợ lý nghiên cứu song song, 30–60 kiến thức mới, báo cáo tuần và 7 bài học cho tuần sau.</p></div>`;
+  return status + `<div class="wkh" id="wkHero"><div class="kicker"><span>ĐỢT NGHIÊN CỨU LỚN · ${fmtD(wk.date)}</span>${wk.extraDocUrl ? `<a href="${esc(wk.extraDocUrl)}" target="_blank" rel="noopener" style="color:var(--faint);font-size:11px">báo cáo bổ sung ↗</a>` : ""}</div><h2>${esc(wk.title || "")}</h2><p>${esc(wk.summary || "")}</p>
+    <div class="wkn"><div><b>${st && st.added != null ? st.added : added}</b>kiến thức mới</div>${st && st.sources != null ? `<div><b>${st.sources}</b>nguồn đã kiểm</div>` : ""}<div><b>${R.length}</b>tổng đã nạp</div></div>
+    ${t3.length ? `<div class="wk3"><small>3 phát hiện đáng chú ý</small>${t3.map((x, i) => `<a class="t3" ${x.nodeId ? `data-open="${esc(x.nodeId)}"` : safeUrl(x.url) ? `href="${esc(x.url)}" target="_blank" rel="noopener"` : ""}><b>0${i + 1}</b><div><strong>${esc(x.title || "")}</strong>${x.why ? `<span>${esc(x.why)}</span>` : ""}</div></a>`).join("")}</div>` : ""}
+    <div class="wkb">${wk.docUrl ? `<a class="btn" href="${esc(wk.docUrl)}" target="_blank" rel="noopener" style="text-decoration:none">Mở báo cáo tuần ↗</a>` : ""}<button type="button" class="btn ghost" data-wk="map">Xem trên bản đồ ý</button><button type="button" class="btn ghost" data-wk="wk">Lọc kiến thức tuần này</button></div></div>`;
+}
+function wkMount() {
+  const v = $("#v-nghien-cuu"); if (!v) return;
+  const secs = [...v.querySelectorAll(".sec")]; const old = secs.find(x => /Đợt nghiên cứu lớn gần nhất/.test(x.textContent));
+  if (old) { const card = old.nextElementSibling; old.remove(); if (card && card.classList.contains("card")) card.remove(); }
+  const anchor = secs.find(x => /Kiến thức đã nạp/.test(x.textContent)); if (!anchor) return;
+  anchor.insertAdjacentHTML("beforebegin", wkHero());
+  v.querySelectorAll("[data-open]").forEach(a => a.onclick = e => { e.preventDefault(); showNode(a.dataset.open); });
+  v.querySelectorAll("[data-wk]").forEach(b => b.onclick = () => { if (b.dataset.wk === "map") { setView("map"); if (MOB) { const pn = $("#panel"); if (pn) pn.classList.remove("open"); } else { try { window.__gal && window.__gal.closePanel(); } catch (e) {} } } else { resFilter = "__wk"; resN = 20; renderResearch(); const s = v.querySelector("#resQ"); if (s) s.scrollIntoView({ behavior: "smooth", block: "start" }); } });
+}
+{ const o = renderResearch; renderResearch = (...a) => { const r = o(...a); try { wkMount(); } catch (e) { console.warn(e); } return r; }; }
+
+/* ---- có gì mới ---- */
+function openWN() {
+  let el = $("#wn"); if (!el) { el = document.createElement("div"); el.id = "wn"; el.setAttribute("role", "dialog"); document.body.appendChild(el); }
+  const F = [["◉", "Bản đồ ý", "Toàn bộ ý và kiến thức thành mạng lưới 2D, gom theo thiên hà hoặc trụ cột, tìm và phóng to.", () => setView("map")],
+    ["⌁", "Hành trình", "Dòng thời gian theo ngày: ý đã ghi, bài đã học, checklist, 7 trụ cột. Mỗi ngày một ý cũ quay lại.", () => setView("jour")],
+    ["💡", "Insight tự tính", "Chủ đề đang nổi, thiên hà im lặng, ý mồ côi và gợi ý nối, nhịp ghi của anh. Không dùng AI.", () => { setTab("nghien-cuu"); if (MOB) $("#panel").classList.add("open"); setTimeout(() => { const c = $("#insCard"); if (c) c.scrollIntoView({ behavior: "smooth" }); }, 250); }],
+    ["📖", "Đọc tập trung", "Bài học mở toàn màn hình trên nền giấy, chữ lớn, có nghe bằng giọng nói và ô trả lời câu hỏi phản biện.", () => { if (brain.lesson) openReader(brain.lesson); else toast("Chưa có bài học hôm nay."); }],
+    ["▦", "Lịch thói quen", "8 tuần gần nhất: ngày nào ghi nhiều, ngày nào đạt checklist, đọc đủ 7 trụ cột, học bài.", () => { setTab("nghien-cuu"); if (MOB) $("#panel").classList.add("open"); setTimeout(() => { const c = $("#habCard"); if (c) c.scrollIntoView({ behavior: "smooth" }); }, 250); }],
+    ["☑", "Việc hôm nay + bản tin", "Việc nhỏ của bài học và 7 trụ cột gom thành một danh sách tick. Nút ▶ ở đầu Today đọc bản tin sáng.", () => { setTab("hom-nay"); if (MOB) $("#panel").classList.add("open"); setTimeout(() => goCard("#ahCard"), 100); }],
+    ["🔬", "Phòng nghiên cứu", "Thẻ đợt nghiên cứu lớn với 3 phát hiện nổi bật, lọc kiến thức tuần này, giờ chạy đợt tới.", () => { setTab("nghien-cuu"); if (MOB) $("#panel").classList.add("open"); setTimeout(() => { const c = $("#wkHero") || $("#v-nghien-cuu"); if (c) c.scrollIntoView({ behavior: "smooth" }); }, 250); }],
+    ["✎", "Mẫu ghi nhanh", "Chip ✎ Mẫu cạnh hàng thiên hà: Quyết định, Bài học, Câu hỏi, Biết ơn.", () => { const b = document.querySelector(".tplb"); if (b) b.click(); setTimeout(() => capT.focus(), 100); }]];
+  el.innerHTML = `<div class="wb"><div class="kicker"><span>CÓ GÌ MỚI · BẢN 15</span><span style="color:var(--faint)">${fmtD(vnDate())}</span></div><h2>Bộ não vừa lên một tầng mới</h2><p class="wd">Bấm “Thử” ở mỗi mục để mở ngay. Lúc nào cũng mở lại được bằng ⌘K → “Có gì mới”, hoặc phím <b>?</b>.</p>
+    <div class="wg">${F.map((f, i) => `<div class="wc"><i>${f[0]}</i><b>${esc(f[1])}</b><p>${esc(f[2])}</p><button type="button" data-i="${i}">Thử →</button></div>`).join("")}</div>
+    <div class="wf"><small>Phím tắt: V đổi cách nhìn · ⌘K bảng lệnh · / tìm ý · R ôn tập · W tuần này</small><button type="button" data-x="1">Đã hiểu</button></div></div>`;
+  const close = () => { el.classList.remove("on"); ls.set("sb_wn", WN_VER); };
+  el.querySelector("[data-x]").onclick = close; el.onclick = e => { if (e.target === el) close(); };
+  el.querySelectorAll("[data-i]").forEach(b => b.onclick = () => { close(); try { F[+b.dataset.i][3](); } catch (e) {} });
+  el.classList.add("on");
+}
+addEventListener("keydown", e => { if (e.key === "?" && !e.metaKey && !e.ctrlKey) { const tg = (e.target.tagName || "").toLowerCase(); if (tg === "input" || tg === "textarea") return; const w = $("#wn"); if (w && w.classList.contains("on")) w.classList.remove("on"); else openWN(); } });
+{ const o = cmdsExtra; cmdsExtra = () => [...o(), ["Xem", "✦", "Có gì mới (bản 15)", "?", () => openWN()], ["Làm ngay", "📖", "Đọc bài học tập trung", "", () => { if (brain.lesson) openReader(brain.lesson); else toast("Chưa có bài học hôm nay."); }], ["Xem", "▦", "Lịch thói quen 8 tuần", "", () => { setTab("nghien-cuu"); setTimeout(() => { const c = $("#habCard"); if (c) c.scrollIntoView({ behavior: "smooth" }); }, 200); }]]; }
+setTimeout(() => { try { if (ls.get("sb_wn", "") !== WN_VER && !document.querySelector("#morn.on") && !$("#pw") ) openWN(); } catch (e) {} }, 5200);
 
 setTimeout(() => { $("#boot").classList.add("off"); document.querySelectorAll(".rail,.top .hello,.k,.legend,.panel,.capture").forEach((el, i) => { el.classList.add("rv"); el.style.animationDelay = (0.5 + i * 0.06) + "s"; }); }, galOn() ? 2700 : 900);
 if (!brain.updatedAt) setSync("wait", "Đang kết nối Drive…"); else setSync("wait", "Đang đồng bộ…");
