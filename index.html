@@ -15,7 +15,7 @@
 <title>Second Brain · Kian</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#03040b; --ink:#e9eeff; --dim:#9aa5c9; --faint:#66709a;
@@ -969,6 +969,35 @@ body.gal #wn .wb{filter:invert(1) hue-rotate(180deg);background:#0a0e15}
 .wks i{width:7px;height:7px;border-radius:50%;background:#5cf2a8;box-shadow:0 0 8px #5cf2a8;display:inline-block}
 .wks i.w{background:#ffb454;box-shadow:0 0 8px #ffb454}
 @media (max-width:820px){#reader .rdi{padding:18px 16px 110px}#wn.on{padding:10px;align-items:flex-end}#wn .wb{padding:20px 16px 16px;border-radius:18px 18px 0 0;max-height:88vh;overflow:auto}}
+/* ===== v16: giọng đọc HD, hỏi não bằng Claude, Nếu là tôi ===== */
+.akmd{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap}
+.akmd button{font:inherit;font-size:12.5px;padding:6px 12px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--dim);cursor:pointer}
+.akmd button.on{background:var(--ink);color:#0a0e15;border-color:transparent}
+.akmd small{flex-basis:100%;font-size:12px;color:var(--faint);line-height:1.5}
+.pfb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;padding-top:8px;border-top:1px dashed var(--line)}
+.pfb small{color:var(--faint);font-size:11.5px;margin-right:4px}
+.pfb button{font:inherit;font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--ink);cursor:pointer}
+.pfb textarea{flex-basis:100%;margin-top:6px}
+#capG .gch.askb.on{background:var(--ink);color:#0a0e15}
+body.capAsk #cap{box-shadow:0 0 0 1px rgba(125,243,255,.55),0 10px 40px rgba(0,0,0,.4)}
+#vset{position:fixed;inset:0;z-index:87;display:none;background:rgba(3,4,11,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+#vset.on{display:flex;align-items:center;justify-content:center;padding:16px}
+#vset .vb{width:min(460px,100%);background:#0f1420;border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:20px;box-shadow:0 40px 120px rgba(0,0,0,.6);max-height:90vh;overflow:auto}
+#vset h3{margin:6px 0 4px;font-weight:500;font-size:20px}
+#vset p{margin:0 0 12px;font-size:13px;color:var(--dim);line-height:1.5}
+#vset .vr{display:flex;align-items:center;gap:10px;padding:9px 10px;border:1px solid rgba(255,255,255,.1);border-radius:12px;margin-bottom:6px;cursor:pointer}
+#vset .vr.on{border-color:#7df3ff;background:rgba(125,243,255,.08)}
+#vset .vr span{flex:1;font-size:13.5px}
+#vset .vr button{font:inherit;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:none;color:var(--ink);cursor:pointer}
+#vset select,#vset input[type=range]{width:100%}
+#vset select{background:#151b2a;color:var(--ink);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:8px}
+#vset .vf{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:8px}
+#vset .vf button{font:inherit;font-size:13px;padding:9px 18px;border-radius:999px;border:0;background:var(--ink);color:#0a0e15;cursor:pointer}
+#vset .vs{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:14px 0 6px}
+body.gal #vset .vb{filter:invert(1) hue-rotate(180deg);background:#0a0e15}
+#brief .vsrc{margin-left:6px;font-size:10.5px;padding:2px 7px;border-radius:999px;border:1px solid var(--line);color:var(--faint)}
+#brief .vsrc.hd{color:#5cf2a8;border-color:rgba(92,242,168,.4)}
+#brief .vgear{background:none;border:0;color:var(--faint);cursor:pointer;font-size:14px;padding:0 2px}
 .msg .rd{background:none;border:0;color:var(--faint);cursor:pointer;font-size:12px;margin-top:6px;padding:0}
 @media (max-width:820px){#rel{bottom:150px}#srs .fi{min-height:330px}}
 
@@ -1002,7 +1031,7 @@ button:focus:not(:focus-visible),a:focus:not(:focus-visible){outline:none}
 
 /* ===== v11 GALLERY (phong cách ICG Gallery) ===== */
 #gh,#gframe,#gfl,#gbr,.gcp{display:none}
-body.gal{--gfont:"Jost","Be Vietnam Pro",system-ui,sans-serif;--serif:var(--gfont);font-family:var(--gfont);font-weight:300;--cream:#f5f1ea;--gink:#1c1b19}
+body.gal{--gfont:"Be Vietnam Pro",system-ui,sans-serif;--serif:var(--gfont);font-family:var(--gfont);font-weight:300;--cream:#f5f1ea;--gink:#1c1b19}
 body.gal button,body.gal input,body.gal textarea,body.gal select{font-family:var(--gfont)}
 body.gal .rail,body.gal .legend,body.gal .hint,body.gal .scan,body.gal #grain,body.gal .top,body.gal .tline,body.gal .mfab,body.gal #rel{display:none!important}
 body.gal .vignette{background:radial-gradient(ellipse 80% 70% at 50% 52%,transparent 40%,rgba(3,3,6,.78) 100%)}
@@ -2345,7 +2374,7 @@ async function ask() {
   chat.insertAdjacentHTML("beforeend", `<div class="msg u">${esc(q)}</div>`);
   const a = document.createElement("div"); a.className = "msg a"; a.innerHTML = `<span class="muted">Đang lục lại trí nhớ…</span>`; chat.appendChild(a);
   a.scrollIntoView({ block: "end", behavior: "smooth" });
-  const rules = `Bạn là "bộ não thứ hai" của Kian (anh Tuấn), làm marketing ở tập đoàn nước giải khát THP, Việt Nam. Trả lời bằng tiếng Việt, xưng "em", gọi "anh". Chỉ dựa trên dữ liệu bộ não bên dưới cộng hiểu biết phổ thông; khi dữ liệu chưa đủ thì nói thẳng là chưa đủ và gợi ý anh nên ghi thêm gì. Nhắc tới ý cụ thể của anh thì nêu ngày. Ngắn gọn, rõ ràng, dùng gạch đầu dòng khi liệt kê. Luôn kết thúc bằng một dòng bắt đầu bằng "**Phản biện:**" chỉ ra điều anh có thể đang bỏ qua. Không bịa sự kiện.\n\n${brainContext()}`;
+  const rules0 = `Bạn là "bộ não thứ hai" của Kian (anh Tuấn), làm marketing ở tập đoàn nước giải khát THP, Việt Nam. Trả lời bằng tiếng Việt, xưng "em", gọi "anh". Chỉ dựa trên dữ liệu bộ não bên dưới cộng hiểu biết phổ thông; khi dữ liệu chưa đủ thì nói thẳng là chưa đủ và gợi ý anh nên ghi thêm gì. Nhắc tới ý cụ thể của anh thì nêu ngày. Ngắn gọn, rõ ràng, dùng gạch đầu dòng khi liệt kê. Luôn kết thúc bằng một dòng bắt đầu bằng "**Phản biện:**" chỉ ra điều anh có thể đang bỏ qua. Không bịa sự kiện.`; const rules = (window.__askPersona ? personaRules() : rules0) + "\n\n" + brainContext();
   chatTurns.push({ role: "user", content: q });
   const turns = [{ role: "user", content: rules }, ...chatTurns.slice(-8)];
   askCtl = new AbortController(); $("#askStop").hidden = false; $("#askStop").onclick = () => askCtl.abort(); $("#askBtn").disabled = true;
@@ -4048,6 +4077,123 @@ function openWN() {
 addEventListener("keydown", e => { if (e.key === "?" && !e.metaKey && !e.ctrlKey) { const tg = (e.target.tagName || "").toLowerCase(); if (tg === "input" || tg === "textarea") return; const w = $("#wn"); if (w && w.classList.contains("on")) w.classList.remove("on"); else openWN(); } });
 { const o = cmdsExtra; cmdsExtra = () => [...o(), ["Xem", "✦", "Có gì mới (bản 15)", "?", () => openWN()], ["Làm ngay", "📖", "Đọc bài học tập trung", "", () => { if (brain.lesson) openReader(brain.lesson); else toast("Chưa có bài học hôm nay."); }], ["Xem", "▦", "Lịch thói quen 8 tuần", "", () => { setTab("nghien-cuu"); setTimeout(() => { const c = $("#habCard"); if (c) c.scrollIntoView({ behavior: "smooth" }); }, 200); }]]; }
 setTimeout(() => { try { if (ls.get("sb_wn", "") !== WN_VER && !document.querySelector("#morn.on") && !$("#pw") ) openWN(); } catch (e) {} }, 5200);
+
+/* ===== v16: giọng đọc tự nhiên + Claude ở mọi link + "Nếu là tôi" ===== */
+const HASGAS = typeof gcall === "function" && typeof PW !== "undefined";
+const CHIRP = [["vi-VN-Chirp3-HD-Aoede", "Aoede · nữ, ấm áp"], ["vi-VN-Chirp3-HD-Kore", "Kore · nữ, rõ ràng"], ["vi-VN-Chirp3-HD-Leda", "Leda · nữ, trẻ"], ["vi-VN-Chirp3-HD-Charon", "Charon · nam, trầm"], ["vi-VN-Chirp3-HD-Puck", "Puck · nam, sáng"], ["vi-VN-Chirp3-HD-Orus", "Orus · nam, chắc"]];
+const VOICE = { cloud: false, claude: false, el: null, on: false, id: 0, res: null };
+const ABBR = [[/TTĐB/g, "tiêu thụ đặc biệt"], [/\bFMCG\b/g, "hàng tiêu dùng nhanh"], [/\bKPI\b/g, "chỉ số KPI"], [/\bvs\.?\b/gi, "so với"], [/\bml\b/g, "mi li lít"], [/(\d)\s?g\/100\s?ml/g, "$1 gam trên 100 mi li lít"], [/\bVNĐ\b|\bVND\b/g, "đồng"], [/\bUSD\b/g, "đô la Mỹ"], [/\bv\.v\.?/g, "vân vân"], [/\bTP\.?\s?HCM\b/g, "Thành phố Hồ Chí Minh"]];
+function normVi(t) {
+  t = String(t || "").replace(/<[^>]+>/g, " ").replace(/[*_#`>|]/g, " ").replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2190}-\u{21FF}✦✓✗★☆▶■◐]/gu, " ");
+  t = t.replace(/(\d+(?:[.,]\d+)?)\s?[–—-]\s?(\d+(?:[.,]\d+)?)\s?%/g, "$1 đến $2 phần trăm").replace(/(\d+(?:[.,]\d+)?)\s?%/g, "$1 phần trăm").replace(/(\d)\s?[–—]\s?(\d)/g, "$1 đến $2");
+  ABBR.forEach(([a, b]) => { t = t.replace(a, b); });
+  return t.replace(/\s*[–—]\s*/g, ", ").replace(/\s+/g, " ").trim();
+}
+function vSent(t) { return t.split(/(?<=[.!?…:;])\s+/).map(x => x.trim()).filter(Boolean); }
+function vChunks(t, max) { const out = []; let cur = ""; for (const x of vSent(t)) { if (cur && (cur + " " + x).length > max) { out.push(cur); cur = x; } else cur = cur ? cur + " " + x : x; } if (cur) out.push(cur); return out.flatMap(c => c.length <= max * 1.4 ? [c] : c.match(new RegExp(".{1," + max + "}(\\s|$)", "g")) || [c]); }
+function vBrowserVoice() { const vs = speechSynthesis.getVoices().filter(v => /^vi/i.test(v.lang)), pref = ls.get("sb_bvoice", ""); return vs.find(v => v.name === pref) || vs.find(v => /natural|neural/i.test(v.name)) || vs.find(v => /online/i.test(v.name)) || vs.find(v => /google/i.test(v.name)) || vs.find(v => /premium|enhanced|nâng cao/i.test(v.name)) || vs[0] || null; }
+const _vCancel = speechSynthesis.cancel.bind(speechSynthesis);
+function vStop() { VOICE.id++; VOICE.on = false; if (VOICE.el) { try { VOICE.el.pause(); } catch (e) {} } if (VOICE.res) { const f = VOICE.res; VOICE.res = null; f(); } _vCancel(); }
+const vCache = new Map();
+function vFetch(txt) { const v = ls.get("sb_cvoice", CHIRP[0][0]), k = v + "|" + txt; if (vCache.has(k)) return vCache.get(k); const pr = gcall("tts", txt, v, PW).then(r => r.audio); vCache.set(k, pr); pr.catch(() => vCache.delete(k)); if (vCache.size > 60) vCache.delete(vCache.keys().next().value); return pr; }
+function vEl() { if (!VOICE.el) { VOICE.el = new Audio(); VOICE.el.preload = "auto"; } return VOICE.el; }
+addEventListener("pointerdown", () => { if (VOICE.el || !HASGAS) return; const a = vEl(); try { a.src = "data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA="; a.play().then(() => a.pause()).catch(() => {}); } catch (e) {} }, { capture: true, passive: true });
+function vPlay(b64, id) { return new Promise((ok, no) => { if (id !== VOICE.id) return ok(); const a = vEl(); VOICE.res = ok; a.onended = () => { VOICE.res = null; ok(); }; a.onerror = () => { VOICE.res = null; no(new Error("audio")); }; a.src = "data:audio/mp3;base64," + b64; a.playbackRate = +ls.get("sb_vrate", 1) || 1; a.play().catch(e => { VOICE.res = null; no(e); }); }); }
+async function vSpeak(text) {
+  vStop(); const id = ++VOICE.id; VOICE.on = true; const t = normVi(text); if (!t) { VOICE.on = false; return; }
+  if (VOICE.cloud && HASGAS && ls.get("sb_vsrc", "hd") === "hd") {
+    try { const cs = vChunks(t, 900); let nx = vFetch(cs[0]); for (let i = 0; i < cs.length; i++) { const b = await nx; if (id !== VOICE.id) return; if (i + 1 < cs.length) nx = vFetch(cs[i + 1]); if (b) await vPlay(b, id); if (id !== VOICE.id) return; } VOICE.on = false; return; }
+    catch (e) { if (id !== VOICE.id) return; console.warn("tts", e); toast("Giọng HD đang lỗi, em chuyển sang giọng của máy."); }
+  }
+  const v = vBrowserVoice(), ss = vChunks(t, 200), rate = +ls.get("sb_vrate", 1) || 1;
+  if (!ss.length) { VOICE.on = false; return; }
+  ss.forEach((x, i) => { const u = new SpeechSynthesisUtterance(x); u.lang = "vi-VN"; if (v) u.voice = v; u.rate = 0.96 * rate; u.pitch = 1; if (i === ss.length - 1) { u.onend = () => { if (id === VOICE.id) VOICE.on = false; }; u.onerror = u.onend; } speechSynthesis.speak(u); });
+}
+try { const d = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(speechSynthesis), "speaking"); Object.defineProperty(speechSynthesis, "speaking", { configurable: true, get: () => VOICE.on || !!(d && d.get.call(speechSynthesis)) }); speechSynthesis.cancel = () => vStop(); } catch (e) {}
+speak = (t) => { vSpeak(t); };
+function vLabel() { return VOICE.cloud && ls.get("sb_vsrc", "hd") === "hd" ? `Google HD · ${(CHIRP.find(c => c[0] === ls.get("sb_cvoice", CHIRP[0][0])) || CHIRP[0])[1].split(" ·")[0]}` : (vBrowserVoice() ? "giọng máy · " + vBrowserVoice().name.replace(/Microsoft |Google |\(.*?\)| Online| - .*$/g, "").trim().slice(0, 18) : "giọng máy"); }
+function openVoiceSet() {
+  let el = $("#vset"); if (!el) { el = document.createElement("div"); el.id = "vset"; el.setAttribute("role", "dialog"); document.body.appendChild(el); }
+  const cv = ls.get("sb_cvoice", CHIRP[0][0]), src = ls.get("sb_vsrc", "hd"), bvs = speechSynthesis.getVoices().filter(v => /^vi/i.test(v.lang)), bv = vBrowserVoice();
+  el.innerHTML = `<div class="vb"><div class="kicker"><span>GIỌNG ĐỌC</span><span style="color:var(--faint)">${esc(vLabel())}</span></div><h3>Chọn giọng đọc</h3>
+    <p>${VOICE.cloud ? "Giọng Google Chirp 3 HD tự nhiên nhất, cần mạng. Giọng của máy dùng khi không có mạng hoặc ở bản trong claude.ai." : HASGAS ? "Giọng Google HD chưa bật: cần dán khóa TTS_KEY vào Apps Script. Đang dùng giọng của máy." : "Bản trong claude.ai dùng giọng của máy. Mở app online hoặc link Apps Script để nghe giọng Google HD."}</p>
+    ${VOICE.cloud ? `<div class="vs">Giọng Google HD</div>${CHIRP.map(([k, n]) => `<div class="vr ${src === "hd" && cv === k ? "on" : ""}" data-c="${k}"><span>${esc(n)}</span><button type="button" data-t="${k}">Nghe thử</button></div>`).join("")}` : ""}
+    <div class="vs">Giọng của máy</div><div class="vr ${!VOICE.cloud || src === "web" ? "on" : ""}" data-w="1"><span>${bvs.length ? `<select id="vsB">${bvs.map(v => `<option value="${esc(v.name)}" ${bv && bv.name === v.name ? "selected" : ""}>${esc(v.name)}</option>`).join("")}</select>` : "Máy này chưa có giọng tiếng Việt"}</span><button type="button" data-tw="1">Nghe thử</button></div>
+    <div class="vs">Tốc độ · <b id="vsR">${(+ls.get("sb_vrate", 1)).toFixed(2)}×</b></div><input type="range" id="vsS" min="0.8" max="1.3" step="0.05" value="${+ls.get("sb_vrate", 1)}">
+    <div class="vf"><small style="color:var(--faint);font-size:12px">Mẹo: trên Windows mở bằng Edge để có giọng HoaiMy/NamMinh tự nhiên.</small><button type="button" data-x="1">Xong</button></div></div>`;
+  const sample = "Chào anh. Đây là giọng đọc bộ não thứ hai. Bài học hôm nay nói về tăng trưởng nhờ thêm người mua mới, tám mươi tám phần trăm thương hiệu tăng trưởng là nhờ điều đó.";
+  el.querySelectorAll("[data-c]").forEach(r => r.onclick = e => { if (e.target.closest("button")) return; ls.set("sb_cvoice", r.dataset.c); ls.set("sb_vsrc", "hd"); openVoiceSet(); });
+  el.querySelectorAll("[data-t]").forEach(b => b.onclick = () => { ls.set("sb_cvoice", b.dataset.t); ls.set("sb_vsrc", "hd"); vSpeak(sample); openVoiceSet(); });
+  const w = el.querySelector("[data-w]"); if (w) w.onclick = e => { if (e.target.closest("button,select")) return; ls.set("sb_vsrc", "web"); openVoiceSet(); };
+  const tw = el.querySelector("[data-tw]"); if (tw) tw.onclick = () => { ls.set("sb_vsrc", "web"); vSpeak(sample); openVoiceSet(); };
+  const sb = el.querySelector("#vsB"); if (sb) sb.onchange = () => { ls.set("sb_bvoice", sb.value); ls.set("sb_vsrc", "web"); };
+  const sl = el.querySelector("#vsS"); sl.oninput = () => { ls.set("sb_vrate", +sl.value); el.querySelector("#vsR").textContent = (+sl.value).toFixed(2) + "×"; };
+  el.querySelector("[data-x]").onclick = () => { el.classList.remove("on"); vStop(); try { const b = $("#brief"); if (b) { b.remove(); briefMount(); vBrief(); } } catch (e) {} };
+  el.onclick = e => { if (e.target === el) el.querySelector("[data-x]").click(); };
+  el.classList.add("on");
+}
+try { speechSynthesis.onvoiceschanged = () => { try { vBrief(); } catch (e) {} }; } catch (e) {}
+function vBrief() { const b = $("#brief"); if (!b) return; const sm = b.querySelector("small"); if (!sm) return; let l = b.querySelector(".vsrc"); if (!l) { l = document.createElement("span"); l.className = "vsrc"; sm.after(l); const g = document.createElement("button"); g.type = "button"; g.className = "vgear"; g.title = "Chọn giọng đọc"; g.textContent = "⚙"; g.onclick = e => { e.stopPropagation(); openVoiceSet(); }; l.after(g); } l.textContent = vLabel(); l.classList.toggle("hd", VOICE.cloud && ls.get("sb_vsrc", "hd") === "hd"); }
+{ const o = renderToday; renderToday = nodes => { const r = o(nodes); try { vBrief(); } catch (e) {} return r; }; }
+
+/* ---- Claude qua Apps Script khi không ở claude.ai ---- */
+async function remoteSample(turns, opts = {}) {
+  const sys = String(turns[0] && turns[0].content || ""), msgs = turns.slice(1).map(t => ({ role: t.role, content: typeof t.content === "string" ? t.content : JSON.stringify(t.content) }));
+  const job = gcall("ask", sys, msgs, "", PW);
+  const res = await (opts.signal ? Promise.race([job, new Promise((_, no) => opts.signal.addEventListener("abort", () => no({ code: "cancelled" })))]) : job);
+  if (opts.onText) try { opts.onText({ text: res.text }); } catch (e) {}
+  return { text: res.text, truncated: !!res.truncated };
+}
+async function capsCheck() { if (!HASGAS || !PW) return; try { const c = await gcall("caps", PW); VOICE.cloud = !!c.tts; VOICE.claude = !!c.claude; } catch (e) { VOICE.cloud = VOICE.claude = false; } try { vBrief(); askMode(); } catch (e) {} }
+if (HASGAS) { setTimeout(capsCheck, 3500); setTimeout(capsCheck, 12000); }
+
+/* ---- Nếu là tôi ---- */
+function personaRules() {
+  return `Bạn là BỘ NÃO THỨ HAI của Kian Hồ (anh Tuấn), marketing ở tập đoàn nước giải khát THP, Việt Nam. Nhiệm vụ: học để suy nghĩ và trả lời GIỐNG ANH NHẤT, như chính anh đang tự trả lời. Viết tiếng Việt, ở ngôi thứ nhất, xưng "mình", bằng giọng văn, nguyên tắc, giá trị và cách ra quyết định có trong HỒ SƠ TƯ DUY, mục GIỌNG CỦA ANH và các ý anh đã ghi bên dưới. Ưu tiên điều anh đã ghi hơn kiến thức chung; khi dựa vào một ý cụ thể của anh thì nêu ngày. Khi dữ liệu chưa đủ để biết anh sẽ nghĩ gì, nói rõ "phần này mình đoán" rồi đoán dựa trên nguyên tắc gần nhất. Không bịa trải nghiệm, con người hay sự kiện anh chưa ghi. Không nói thay anh về sức khoẻ hay chuyện riêng tư ngoài điều anh đã ghi. Ngắn gọn như người đang tự nghĩ. Kết thúc bằng dòng bắt đầu "**Dựa vào:**" liệt kê 1–3 ý hoặc nguyên tắc đã dùng.`;
+}
+{ const o = brainContext; brainContext = () => { let s = o(); try {
+  const q = window.__askQ || ""; if (q) { const rel = relatedFor(q, null, 18); if (rel.length) s += `\n\nÝ LIÊN QUAN NHẤT TỚI CÂU HỎI (đầy đủ hơn):\n` + rel.map(n => `[${n.date}|${GM[n.g]?.name || n.g}|${n.src === "note" ? "anh ghi" : "kiến thức"}] ${n.title}: ${String(n.text || "").slice(0, 600)}`).join("\n"); }
+  if (window.__askPersona) { const mine = noteNodes().slice().sort((a, b) => String(b.at || b.date).localeCompare(String(a.at || a.date))).slice(0, 16); if (mine.length) s += `\n\nGIỌNG CỦA ANH (nguyên văn các ý anh ghi gần nhất, để học cách anh nói và nghĩ):\n` + mine.map(n => `- (${n.date}) ${String(n.text || n.title || "").slice(0, 420)}`).join("\n"); const fb = noteNodes().filter(n => (n.tags || []).includes("dung-la-toi")).slice(-6); if (fb.length) s += `\n\nNHỮNG CÂU TRẢ LỜI ANH ĐÃ XÁC NHẬN "ĐÚNG LÀ MÌNH":\n` + fb.map(n => `- ${String(n.text || "").slice(0, 400)}`).join("\n"); }
+} catch (e) {} return s; }; }
+{ const o = askMode; askMode = () => { o(); try { const m = $("#akm"), w = $("#akw"); if (!m) return; if (!sample && VOICE.claude) { m.classList.add("on"); m.textContent = "CLAUDE ĐANG SUY LUẬN"; if (w) w.hidden = true; } else if (!sample && HASGAS && w) { w.textContent = "Ở link này bộ não chỉ tìm ra các ý gần nhất. Dán khóa ANTHROPIC_KEY vào Apps Script để Claude trả lời đầy đủ ở mọi link."; } } catch (e) {} }; }
+function askModeUI() {
+  const h = $(".askHero"); if (!h || h.querySelector(".akmd")) return;
+  const d = document.createElement("div"); d.className = "akmd";
+  d.innerHTML = `<button type="button" data-m="0" class="${window.__askPersona ? "" : "on"}">Hỏi bộ não</button><button type="button" data-m="1" class="${window.__askPersona ? "on" : ""}">Nếu là tôi</button><small id="akmdH"></small>`;
+  const row = $("#askT").closest(".row"); h.insertBefore(d, row);
+  const hint = () => { $("#akmdH").textContent = window.__askPersona ? "Não trả lời bằng giọng của anh, ngôi “mình”, dựa trên hồ sơ và ý anh đã ghi. Bấm “Đúng là tôi” hoặc sửa lại để não học giống anh hơn." : "Não trả lời như một trợ lý hiểu anh, có dòng phản biện ở cuối."; $("#askT").placeholder = window.__askPersona ? "Hỏi chính mình: “Mình sẽ làm gì nếu…”, “Mình nghĩ gì về…” (Enter để hỏi)" : "Hỏi một quyết định, một băn khoăn… (Enter để hỏi)"; };
+  d.querySelectorAll("[data-m]").forEach(b => b.onclick = () => { window.__askPersona = b.dataset.m === "1"; ls.set("sb_persona", window.__askPersona ? 1 : 0); d.querySelectorAll("[data-m]").forEach(x => x.classList.toggle("on", x === b)); hint(); });
+  hint();
+}
+window.__askPersona = ls.get("sb_persona", 0) === 1;
+{ const o = askPlus; askPlus = () => { o(); try { askModeUI(); } catch (e) {} }; }
+try { askModeUI(); } catch (e) {}
+{ const o = ask; ask = async () => {
+  const t = $("#askT"), q = t ? t.value.trim() : ""; window.__askQ = q;
+  const ch = $("#chat"), before = ch ? ch.querySelectorAll(".msg.a").length : 0, persona = !!window.__askPersona;
+  const remote = !sample && VOICE.claude && HASGAS; if (remote) sample = remoteSample;
+  try { await o(); } finally { if (remote) sample = null; window.__askQ = ""; }
+  try {
+    if (!q || !persona || !(remote || sample)) return; const all = ch.querySelectorAll(".msg.a"), a = all[all.length - 1]; if (!a || all.length === before || a.querySelector(".pfb")) return;
+    const ans = plain(a.innerHTML.replace(/<button[^>]*>.*?<\/button>/g, "")).slice(0, 900);
+    a.insertAdjacentHTML("beforeend", `<div class="pfb"><small>Có giống anh không?</small><button type="button" data-f="y">✓ Đúng là tôi</button><button type="button" data-f="n">✗ Chưa giống, sửa lại</button></div>`);
+    const box = a.querySelector(".pfb");
+    box.querySelector('[data-f="y"]').onclick = async () => { box.innerHTML = "<small>Đang lưu…</small>"; try { await saveThought("note", `Hỏi: ${q}\nCâu trả lời đúng giọng mình: ${ans}`, "Đúng là tôi: " + q.slice(0, 50), ["dung-la-toi"], "niem-tin"); box.innerHTML = "<small>✓ Đã lưu. Não sẽ dùng câu này làm mẫu giọng của anh.</small>"; } catch (e) { box.innerHTML = "<small>Chưa lưu được, thử lại sau.</small>"; } };
+    box.querySelector('[data-f="n"]').onclick = () => { box.innerHTML = `<small>Anh sẽ trả lời thế nào?</small><textarea class="in" rows="3" placeholder="Thật ra mình nghĩ…"></textarea><button type="button" data-f="s">Gửi để não học</button>`; const ta = box.querySelector("textarea"); ta.focus(); box.querySelector('[data-f="s"]').onclick = async () => { const fx = ta.value.trim(); if (!fx) { ta.focus(); return; } box.innerHTML = "<small>Đang gửi…</small>"; const ok = await saveJSON("profilefix", { kind: "profile-fix", id: uid("fix"), at: new Date().toISOString(), text: `Khi được hỏi “${q}”, bộ não trả lời: “${ans.slice(0, 400)}”. Thật ra tôi nghĩ: ${fx}` }); box.innerHTML = `<small>${ok ? "✓ Đã gửi. Tối nay bộ não sửa hồ sơ theo lời anh." : "Đã giữ trên máy, sẽ gửi sau."}</small>`; }; };
+  } catch (e) {}
+}; }
+
+/* ---- ô hỏi não ngay ở thanh ghi nhanh ---- */
+(function capAsk() {
+  const add = () => { const g = $("#capG"); if (!g || g.querySelector(".askb")) return; const b = document.createElement("button"); b.type = "button"; b.className = "gch askb"; b.textContent = "? Hỏi não"; b.title = "Chuyển ô này thành ô hỏi bộ não"; b.onclick = e => { e.stopPropagation(); const on = !document.body.classList.contains("capAsk"); document.body.classList.toggle("capAsk", on); b.classList.toggle("on", on); capT.placeholder = on ? "Hỏi bộ não của anh… (Enter để hỏi)" : "Capture an idea, a decision, a thought…"; const sb = $("#sendBtn span"); if (sb) sb.textContent = on ? "Hỏi não" : "Send to brain"; capT.focus(); }; g.insertBefore(b, g.firstChild); if (document.body.classList.contains("capAsk")) b.classList.add("on"); };
+  add(); { const o = renderCapG; renderCapG = (...a) => { const r = o(...a); add(); return r; }; }
+  const go = () => { const q = capT.value.trim(); if (!q) return; capT.value = ""; capT.dispatchEvent(new Event("input", { bubbles: true }));
+    try { if (galOn() && window.__gal && !MOB) window.__gal.openTab("hoi-ho-so"); else { setTab("hoi-ho-so"); if (MOB) { const pn = $("#panel"); if (pn) pn.classList.add("open"); } } } catch (e) { setTab("hoi-ho-so"); }
+    setTimeout(() => { const a = $("#askT"); if (!a) return; a.value = q; ask(); }, 350); };
+  $("#cap").addEventListener("submit", e => { if (!document.body.classList.contains("capAsk")) return; e.preventDefault(); e.stopImmediatePropagation(); go(); }, true);
+  capT.addEventListener("keydown", e => { if (!document.body.classList.contains("capAsk") || e.key !== "Enter" || e.shiftKey || e.isComposing) return; e.preventDefault(); e.stopImmediatePropagation(); go(); }, true);
+})();
+{ const o = cmdsExtra; cmdsExtra = () => [...o(), ["Làm ngay", "🔊", "Chọn giọng đọc", "", () => openVoiceSet()], ["Làm ngay", "🪞", "Hỏi theo chế độ “Nếu là tôi”", "", () => { window.__askPersona = true; ls.set("sb_persona", 1); setTab("hoi-ho-so"); if (MOB) $("#panel").classList.add("open"); setTimeout(() => { const h = $(".askHero"); if (h) { const x = h.querySelector('[data-m="1"]'); if (x) x.click(); } const a = $("#askT"); if (a) a.focus(); }, 300); }]]; }
 
 setTimeout(() => { $("#boot").classList.add("off"); document.querySelectorAll(".rail,.top .hello,.k,.legend,.panel,.capture").forEach((el, i) => { el.classList.add("rv"); el.style.animationDelay = (0.5 + i * 0.06) + "s"; }); }, galOn() ? 2700 : 900);
 if (!brain.updatedAt) setSync("wait", "Đang kết nối Drive…"); else setSync("wait", "Đang đồng bộ…");
