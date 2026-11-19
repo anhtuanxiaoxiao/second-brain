@@ -1197,6 +1197,44 @@ body:not(.gal) .boot .wl,body:not(.gal) .boot .wm{display:none}
   body.gal .tabs{padding:22px 20px 0;gap:22px}
   body.gal .tabs .tab{font-size:14px}
 }
+/* ===== v18 ABOUT ME ===== */
+.mebox{padding:22px 22px 18px;max-height:74vh;overflow:auto;scrollbar-width:thin}
+.mebox h3{font-family:var(--serif);font-weight:400;font-size:26px;margin:0}
+.mehd{display:flex;align-items:center;gap:16px}
+.mehd svg{width:74px;height:74px;flex:none;transform:rotate(-90deg)}
+.mehd circle{fill:none;stroke-width:6;stroke-linecap:round}
+.mehd .pc{position:absolute;font-size:17px;font-weight:600}
+.mehd .rw{position:relative;display:flex;align-items:center;justify-content:center;flex:none}
+.mehd .rw .pc{inset:0;display:flex;align-items:center;justify-content:center}
+.mesec{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:18px 0 8px}
+.meq{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.meq .qt{font-size:14.5px;line-height:1.45;margin-bottom:8px}
+.meq .qa{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.meq textarea{width:100%;box-sizing:border-box;min-height:54px;resize:vertical;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:9px 11px;font:inherit;font-size:14px;outline:none}
+.meq textarea:focus{border-color:rgba(232,195,122,.6)}
+.meq .ac{display:flex;gap:8px;justify-content:flex-end;margin-top:8px}
+.meq .ac button,.mebtn{border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--ink);border-radius:999px;padding:6px 13px;font-size:12.5px;cursor:pointer;font-family:inherit}
+.meq .ac button.pri,.mebtn.pri{background:var(--acc,#e8c37a);color:#1a1405;border-color:transparent;font-weight:600}
+.mear{border:1px solid var(--line);border-radius:14px;margin-bottom:8px;overflow:hidden}
+.mear>button.hd{width:100%;display:flex;align-items:center;gap:10px;background:transparent;border:0;color:var(--ink);padding:11px 14px;font:inherit;font-size:14px;cursor:pointer;text-align:left}
+.mear .bar{flex:none;width:86px;height:6px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+.mear .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#ffb454,#5cf2a8);transition:width .6s}
+.mear .nm{flex:1;min-width:0}.mear .pp{font-size:12px;color:var(--dim);width:36px;text-align:right}
+.mear .bd{display:none;padding:2px 14px 12px;border-top:1px solid var(--line)}
+.mear.open .bd{display:block}
+.mef{padding:9px 0;border-bottom:1px dashed var(--line);font-size:13.5px;line-height:1.45}
+.mef:last-of-type{border-bottom:0}
+.mef .fq{color:var(--faint);font-size:12px}
+.mef .fa{margin-top:2px;white-space:pre-wrap}
+.mef .fx{display:flex;gap:12px;margin-top:4px}
+.mef .fx button{background:none;border:0;color:var(--dim);font-size:12px;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.menote{font-size:12px;color:var(--faint);line-height:1.5;margin-top:14px}
+.mecard{display:flex;align-items:center;gap:12px;cursor:pointer}
+.mecard .pc2{font-size:22px;font-weight:600;min-width:52px}
+.mecard .bar{height:6px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:6px}
+.mecard .bar i{display:block;height:100%;background:linear-gradient(90deg,#ffb454,#5cf2a8)}
+.mecard .tx{flex:1;min-width:0}.mecard .tx b{font-weight:600}.mecard .tx small{display:block;color:var(--dim);font-size:12.5px;margin-top:2px}
+@media (max-width:820px){.mebox{padding:18px 16px 14px;max-height:78vh}.mear .bar{width:56px}.mebox h3{font-size:22px}}
 </style>
 <script type="importmap">
 {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
@@ -4248,6 +4286,112 @@ try { askModeUI(); } catch (e) {}
   }
   el.onclick = () => { try { if (view !== "uni" && !el.classList.contains("inl")) setView("uni"); if (galOn() && !MOB && window.__gal) window.__gal.openTab("hom-nay"); else { setTab("hom-nay"); if (MOB) { const pn = $("#panel"); if (pn) pn.classList.add("open"); } } setTimeout(() => { const t = $("#ckCard"); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" }); }, 350); } catch (e) {} };
   setTimeout(upd, 3600); setInterval(upd, 3000);
+})();
+
+/* ===== v18 ABOUT ME: hồ sơ về anh + phỏng vấn mỗi ngày ===== */
+(function aboutMe() {
+  const A = [
+    { id: "ban", n: "Con người tôi", i: "◉", q: ["Mọi người thường gọi anh bằng tên gì, và anh thích được gọi thế nào?", "Anh sinh năm nào, lớn lên ở đâu, hiện sống ở đâu?", "Nếu mô tả tính cách của anh trong ba từ thì là gì?", "Điều gì người thân hay khen và điều gì họ hay phàn nàn về anh?", "Một điều ít người biết về anh nhưng rất quan trọng với anh?"] },
+    { id: "viec", n: "Công việc", i: "▤", q: ["Vai trò hiện tại của anh ở THP là gì, anh phụ trách những mảng nào?", "Thành tựu nghề nghiệp anh tự hào nhất, vì sao?", "Phần việc nào làm anh có năng lượng, phần nào làm anh kiệt sức?", "Anh muốn mình ở đâu trong sự nghiệp sau 3 năm tới?", "Anh làm việc tốt nhất ở điều kiện nào (giờ giấc, người, môi trường)?"] },
+    { id: "nguoi", n: "Gia đình & người thân", i: "♡", q: ["Những ai là người quan trọng nhất với anh, mỗi người là ai với anh?", "Anh dành thời gian cho gia đình như thế nào trong một tuần thường?", "Ai là người anh tin tưởng nhất để xin lời khuyên, và vì sao?", "Mối quan hệ nào anh muốn cải thiện?", "Anh muốn được những người thân nhớ đến như thế nào?"] },
+    { id: "giatri", n: "Giá trị & niềm tin", i: "✦", q: ["Ba giá trị anh không bao giờ đánh đổi là gì?", "Nguyên tắc sống nào anh đã rút ra từ trải nghiệm của mình?", "Anh tin điều gì mà nhiều người xung quanh không đồng ý?", "Điều gì khiến anh nổi giận hoặc không thể chấp nhận?", "Anh quan niệm thế nào là một cuộc sống tốt?"] },
+    { id: "muctieu", n: "Mục tiêu & giấc mơ", i: "◎", q: ["Mục tiêu lớn nhất của anh trong 12 tháng tới?", "Giấc mơ lớn mà anh chưa nói với nhiều người?", "Nếu tiền và thời gian không là vấn đề, anh sẽ làm gì?", "Điều gì đang cản anh đạt mục tiêu lớn nhất?", "Anh sẽ biết mình thành công khi nào, dấu hiệu cụ thể là gì?"] },
+    { id: "nhip", n: "Thói quen & nhịp sống", i: "◐", q: ["Một ngày thường của anh diễn ra thế nào, từ sáng đến tối?", "Thói quen nào anh muốn giữ chắc và thói quen nào anh muốn bỏ?", "Anh thường làm gì khi căng thẳng hoặc mệt?", "Khung giờ nào trong ngày anh tỉnh táo và sáng tạo nhất?", "Cuối tuần lý tưởng của anh trông như thế nào?"] },
+    { id: "khoe", n: "Sức khỏe & năng lượng", i: "✚", lock: 1, q: ["Anh đang chăm sóc sức khỏe bằng những thói quen nào (ăn, ngủ, vận động)?", "Điều gì thường làm anh mất năng lượng?", "Anh muốn cải thiện điều gì về cơ thể hoặc giấc ngủ?", "Điều gì giúp anh phục hồi tốt nhất?", "Có điều gì về sức khỏe mà bộ não nên luôn lưu ý khi tư vấn cho anh?"] },
+    { id: "tien", n: "Tài chính & ưu tiên", i: "◈", lock: 1, q: ["Anh nghĩ thế nào về tiền: nó dùng để làm gì trong cuộc sống của anh?", "Anh sẵn sàng chi mạnh tay cho điều gì và tiết kiệm ở điều gì?", "Mục tiêu tài chính trong 3–5 năm tới của anh?", "Điều gì về tiền bạc làm anh lo lắng nhất?", "Anh muốn ra quyết định tài chính theo nguyên tắc nào?"] },
+    { id: "nghi", n: "Cách nghĩ & quyết định", i: "⚖", q: ["Khi phải quyết định khó, anh thường làm gì từng bước?", "Anh tin vào dữ liệu hay trực giác nhiều hơn, trong trường hợp nào?", "Lần quyết định sai gần đây nhất và anh học được gì?", "Điểm mù hoặc thói quen nghĩ sai mà anh biết mình hay mắc?", "Anh muốn nghe góp ý thẳng hay nhẹ nhàng, từ ai thì anh nghe nhất?"] },
+    { id: "gu", n: "Sở thích & gu", i: "♪", q: ["Anh thích làm gì khi rảnh, một mình và với người khác?", "Sách, phim, nhạc hoặc người nào đã ảnh hưởng đến anh nhiều nhất?", "Anh thích ăn, uống gì, và không chịu được gì?", "Anh thích phong cách trò chuyện và viết lách nào (ngắn gọn, hài hước, nghiêm túc…)?", "Nơi nào khiến anh thấy thoải mái và là chính mình nhất?"] }
+  ];
+  A.forEach(a => a.q = a.q.map((t, k) => ({ id: a.id + (k + 1), t })));
+  const QS = {}; A.forEach(a => a.q.forEach(q => QS[q.id] = { ...q, area: a.id }));
+  const getMe = () => { const m = ls.get("sb_me", null) || {}; m.f = m.f || {}; m.x = m.x || []; return m; };
+  let pushT = 0;
+  const setMe = m => { ls.set("sb_me", m); ls.set("sb_meat", Date.now()); clearTimeout(pushT); pushT = setTimeout(() => { try { saveJSON("check", { kind: "me", id: "me_" + Date.now().toString(36), at: new Date().toISOString(), me: getMe() }); } catch (e) {} }, 15000); };
+  const cov = (a, m) => Math.min(1, (a.q.filter(q => m.f[q.id]).length + m.x.filter(x => x.area === a.id).length * .5) / a.q.length);
+  const total = m => A.reduce((t, a) => t + cov(a, m), 0) / A.length;
+  const skip = () => { const k = ls.get("sb_meskip", null); return k && k.d === vnDate() ? k.ids : []; };
+  const picks = m => {
+    const sk = skip(), day = Math.floor(Date.now() / 864e5);
+    const order = A.map((a, k) => ({ a, c: cov(a, m), r: (k + day) % A.length })).sort((x, y) => x.c - y.c || x.r - y.r);
+    const out = [];
+    for (const o of order) { const q = o.a.q.find(q => !m.f[q.id] && !sk.includes(q.id)); if (q) out.push(q.id); if (out.length >= 3) break; }
+    return out;
+  };
+  const ago = t => { const d = Math.max(0, Math.round((Date.now() - new Date(t).getTime()) / 864e5)); return d === 0 ? "hôm nay" : d + " ngày trước"; };
+  const RING = pc => { const c = 2 * Math.PI * 30; return `<div class="rw"><svg viewBox="0 0 74 74"><circle cx="37" cy="37" r="30" stroke="rgba(255,255,255,.12)"/><circle cx="37" cy="37" r="30" stroke="#5cf2a8" stroke-dasharray="${c}" stroke-dashoffset="${c * (1 - pc)}"/></svg><span class="pc">${Math.round(pc * 100)}%</span></div>`; };
+  let openArea = null;
+  function qBox(id, f) {
+    const q = QS[id], done = f && f.a != null;
+    return `<div class="meq" data-q="${id}"><div class="qt">${esc(q.t)}</div><textarea placeholder="Trả lời ngắn cũng được, cứ nói thật…">${done ? esc(f.a) : ""}</textarea><div class="ac">${done ? "" : `<button type="button" data-do="skip">Để sau</button>`}<button type="button" class="pri" data-do="save">${done ? "Cập nhật" : "Lưu vào não"}</button></div></div>`;
+  }
+  function view() {
+    const m = getMe(), pc = total(m), pk = picks(m), n = Object.keys(m.f).length + m.x.length;
+    const low = A.map(a => ({ a, c: cov(a, m) })).sort((x, y) => x.c - y.c).slice(0, 2).map(o => o.a.n.toLowerCase());
+    return `<div class="xbox glass"><div class="mebox">
+      <div class="mehd">${RING(pc)}<div><h3>Về anh</h3><div class="muted" style="font-size:13px;margin-top:4px">Bộ não hiểu anh ${Math.round(pc * 100)}%, đã lưu ${n} điều. ${pc < 1 ? "Còn thiếu nhiều nhất: " + low.join(", ") + "." : "Đã khá đầy đủ, hãy giữ cho cập nhật."}</div></div></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px"><button type="button" class="mebtn" data-do="ask">Em biết gì về anh?</button><button type="button" class="mebtn" data-do="export">Xem tất cả hồ sơ</button></div>
+      <div class="mesec">Phỏng vấn hôm nay</div>
+      ${pk.length ? pk.map(id => qBox(id, null)).join("") : `<div class="muted" style="font-size:13px">Hôm nay đã hết câu hỏi. Anh có thể mở từng mảng bên dưới hoặc thêm điều mới.</div>`}
+      <div class="mesec">Bản đồ hiểu biết</div>
+      ${A.map(a => { const c = cov(a, m), fs = a.q.filter(q => m.f[q.id]), xs = m.x.filter(x => x.area === a.id), rest = a.q.filter(q => !m.f[q.id]); return `<div class="mear${openArea === a.id ? " open" : ""}" data-a="${a.id}"><button type="button" class="hd" data-do="tog"><span>${a.i}</span><span class="nm">${esc(a.n)}${a.lock ? " 🔒" : ""}</span><span class="bar"><i style="width:${Math.round(c * 100)}%"></i></span><span class="pp">${Math.round(c * 100)}%</span></button><div class="bd">
+        ${fs.map(q => `<div class="mef" data-q="${q.id}"><div class="fq">${esc(q.t)}</div><div class="fa">${esc(m.f[q.id].a)}</div><div class="fx"><span style="color:var(--faint);font-size:12px">${ago(m.f[q.id].at)}</span><button type="button" data-do="edit">Sửa</button><button type="button" data-do="del">Xóa</button></div></div>`).join("")}
+        ${xs.map(x => `<div class="mef" data-x="${x.id}"><div class="fq">Điều anh bổ sung</div><div class="fa">${esc(x.t)}</div><div class="fx"><span style="color:var(--faint);font-size:12px">${ago(x.at)}</span><button type="button" data-do="delx">Xóa</button></div></div>`).join("")}
+        ${rest.length ? `<div class="mesec" style="margin:12px 0 6px">Chưa trả lời</div>${rest.map(q => `<div class="mef" data-q="${q.id}"><div class="fq" style="color:var(--dim)">${esc(q.t)}</div><div class="fx"><button type="button" data-do="edit">Trả lời</button></div></div>`).join("")}` : ""}
+      </div></div>`; }).join("")}
+      <div class="mesec">Thêm điều về anh</div>
+      <div class="meq"><select id="meArea" class="in" style="margin-bottom:8px;width:100%;box-sizing:border-box">${A.map(a => `<option value="${a.id}">${esc(a.n)}</option>`).join("")}</select><textarea id="meX" placeholder="Một sự thật, sở thích, quyết định hay nguyên tắc về anh mà bộ não nên biết…"></textarea><div class="ac"><button type="button" class="pri" data-do="addx">Thêm</button></div></div>
+      <div class="menote">Hồ sơ này chỉ lưu trên máy anh và trong Drive của anh. Mảng có 🔒 là mảng nhạy cảm, anh có thể bỏ qua hoặc xóa bất cứ lúc nào.</div>
+    </div></div>`;
+  }
+  function render() { const old = document.querySelector("#meov .mebox"), st = old ? old.scrollTop : 0; xOv("meov", view()); const nb = document.querySelector("#meov .mebox"); if (nb) nb.scrollTop = st; }
+  function save(id, txt, el) {
+    txt = txt.trim(); if (!txt) { toast("Anh viết vài chữ rồi lưu nhé"); return; }
+    const m = getMe(); m.f[id] = { a: txt.slice(0, 1200), at: new Date().toISOString() }; setMe(m);
+    try { SFX.tick(); } catch (e) {} toast("Đã lưu vào não ✓"); render();
+  }
+  function askMe() {
+    const e = document.getElementById("meov"); if (e) e.classList.remove("on");
+    try { if (galOn() && window.__gal && !MOB) window.__gal.openTab("hoi-ho-so"); else { setTab("hoi-ho-so"); if (MOB) { const pn = $("#panel"); if (pn) pn.classList.add("open"); } } } catch (er) { setTab("hoi-ho-so"); }
+    setTimeout(() => { const a = $("#askT"); if (!a) return; a.value = "Hãy tóm tắt những gì em biết về anh, và chỉ ra 3 điều em còn chưa biết nhưng nên hỏi."; try { window.ask ? window.ask() : $("#askBtn").click(); } catch (er) { $("#askBtn").click(); } }, 350);
+  }
+  function allText() { const m = getMe(); return A.map(a => { const l = a.q.filter(q => m.f[q.id]).map(q => `${q.t}\n→ ${m.f[q.id].a}`).concat(m.x.filter(x => x.area === a.id).map(x => `+ ${x.t}`)); return l.length ? `## ${a.n}\n` + l.join("\n") : ""; }).filter(Boolean).join("\n\n"); }
+  function exportView() {
+    const t = allText() || "Chưa có gì. Hãy trả lời vài câu phỏng vấn trước.";
+    xOv("meexp", `<div class="xbox glass"><div class="mebox"><h3>Hồ sơ về anh</h3><div class="muted" style="font-size:13px;margin:4px 0 12px">Toàn bộ điều bộ não đang biết về anh. Có thể sao chép làm bản lưu.</div><textarea readonly style="width:100%;box-sizing:border-box;min-height:46vh;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;color:var(--ink);padding:12px;font:inherit;font-size:13.5px;line-height:1.5">${esc(t)}</textarea><div class="ac" style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button type="button" class="mebtn" id="meCp">Sao chép</button><button type="button" class="mebtn pri" id="meBk">Quay lại</button></div></div></div>`);
+    $("#meCp").onclick = () => { try { navigator.clipboard.writeText(t); toast("Đã sao chép"); } catch (e) { toast("Máy không cho sao chép"); } };
+    $("#meBk").onclick = () => { $("#meexp").classList.remove("on"); };
+  }
+  document.addEventListener("click", ev => {
+    const b = ev.target.closest("#meov [data-do]"); if (!b) return;
+    const d = b.dataset.do, qb = b.closest("[data-q]"), id = qb && qb.dataset.q, m = getMe();
+    if (d === "tog") { const ar = b.closest(".mear"), a = ar.dataset.a; openArea = openArea === a ? null : a; ar.classList.toggle("open", openArea === a); document.querySelectorAll("#meov .mear").forEach(x => { if (x !== ar) x.classList.remove("open"); }); }
+    else if (d === "save") save(id, qb.querySelector("textarea").value);
+    else if (d === "skip") { const k = skip().concat(id); ls.set("sb_meskip", { d: vnDate(), ids: k }); render(); }
+    else if (d === "edit") { const f = m.f[id]; const tmp = document.createElement("div"); tmp.innerHTML = qBox(id, f); qb.replaceWith(tmp.firstChild); const ta = document.querySelector(`#meov [data-q="${id}"] textarea`); if (ta) ta.focus(); }
+    else if (d === "del") { delete m.f[id]; setMe(m); toast("Đã xóa"); render(); }
+    else if (d === "delx") { const xid = b.closest("[data-x]").dataset.x; m.x = m.x.filter(x => x.id !== xid); setMe(m); toast("Đã xóa"); render(); }
+    else if (d === "addx") { const t = $("#meX").value.trim(); if (!t) { toast("Anh viết vài chữ rồi thêm nhé"); return; } m.x.push({ id: uid("mx"), area: $("#meArea").value, t: t.slice(0, 1200), at: new Date().toISOString() }); setMe(m); openArea = $("#meArea").value; toast("Đã thêm vào não ✓"); render(); }
+    else if (d === "ask") askMe();
+    else if (d === "export") exportView();
+  });
+  window.openAboutMe = () => { render(); };
+  /* kết nối vào Hỏi não và Nếu là tôi */
+  { const o = brainContext; brainContext = () => { let t = o(); try { const x = allText(); if (x) t += `\n\nHỒ SƠ VỀ ANH (chính anh tự trả lời, đây là sự thật về anh, ưu tiên cao nhất khi nói về anh):\n` + x.slice(0, 6000); } catch (e) {} return t; }; }
+  /* đồng bộ giữa các máy */
+  { const o = mergeChecks; mergeChecks = list => { try { const g = list.filter(x => x && x.kind === "me" && x.me).sort((a, b) => String(b.at).localeCompare(String(a.at)))[0]; if (g && new Date(g.at).getTime() > ls.get("sb_meat", 0)) { ls.set("sb_me", g.me); ls.set("sb_meat", new Date(g.at).getTime()); } } catch (e) {} return o(list); }; }
+  /* thẻ ở Today */
+  function card() {
+    const v = $("#v-hom-nay"); if (!v || v.querySelector("#meCard")) return;
+    const m = getMe(), pc = total(m), pk = picks(m);
+    const h = `<div class="card mecard" id="meCard" role="button" tabindex="0"><div class="pc2">${Math.round(pc * 100)}%</div><div class="tx"><b>Bộ não hiểu anh đến đâu</b><small>${pk.length ? "Hôm nay có " + pk.length + " câu hỏi cho anh, mất khoảng 2 phút." : "Hôm nay đã hỏi xong, anh có thể bổ sung thêm."}</small><div class="bar"><i style="width:${Math.round(pc * 100)}%"></i></div></div><span style="color:var(--dim)">›</span></div>`;
+    const ck = v.querySelector("#ckCard"); if (ck) ck.insertAdjacentHTML("beforebegin", h); else v.insertAdjacentHTML("afterbegin", h);
+    const c = $("#meCard"); c.onclick = () => openAboutMe(); c.onkeydown = e => { if (e.key === "Enter") openAboutMe(); };
+  }
+  { const o = renderToday; renderToday = nodes => { const r = o(nodes); try { card(); } catch (e) { console.warn("me", e); } return r; }; }
+  /* chip ở thanh ghi nhanh + lệnh nhanh */
+  const addChip = () => { const g = $("#capG"); if (!g || g.querySelector(".meb")) return; const b = document.createElement("button"); b.type = "button"; b.className = "gch meb"; b.textContent = "◉ Về tôi"; b.title = "Hồ sơ về anh và phỏng vấn mỗi ngày"; b.onclick = () => openAboutMe(); g.insertBefore(b, g.firstChild); };
+  addChip(); { const o = renderCapG; renderCapG = (...a) => { const r = o(...a); addChip(); return r; }; }
+  { const o = cmdsExtra; cmdsExtra = () => [...o(), ["Làm ngay", "◉", "Về tôi: hồ sơ và phỏng vấn hôm nay", "", () => openAboutMe()]]; }
 })();
 
 setTimeout(() => { $("#boot").classList.add("off"); document.querySelectorAll(".rail,.top .hello,.k,.legend,.panel,.capture").forEach((el, i) => { el.classList.add("rv"); el.style.animationDelay = (0.5 + i * 0.06) + "s"; }); }, galOn() ? 2700 : 900);
