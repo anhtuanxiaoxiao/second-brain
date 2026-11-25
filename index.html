@@ -1363,6 +1363,93 @@ body.v-home #gcur{z-index:91}
   #home .hgo{padding:8px 13px;font-size:13px}
 }
 @media (prefers-reduced-motion:reduce){#home.on,#home.on .hgr,#home.on .hq,#home.on .ht,#home.on .hc{animation:none}}
+/* ===== v21 AURORA: trang chủ sống động + bảng tính năng ===== */
+#home{--a1:rgba(125,243,255,.30);--a2:rgba(180,140,255,.26);--a3:rgba(92,242,168,.20);--g1:#7df3ff;--g2:#b48cff;--sp:rgba(125,243,255,.13)}
+#home[data-tm=am]{--a1:rgba(255,180,84,.34);--a2:rgba(255,111,168,.24);--a3:rgba(125,243,255,.20);--g1:#ffb454;--g2:#ff8fb6}
+#home[data-tm=ev]{--a1:rgba(180,140,255,.34);--a2:rgba(255,111,168,.20);--a3:rgba(84,120,255,.26);--g1:#b48cff;--g2:#ff8fb6}
+body.gal #home{--sp:rgba(255,180,84,.2)}
+#home .hbg{position:sticky;top:0;height:100vh;height:100dvh;margin-bottom:-100vh;margin-bottom:-100dvh;overflow:hidden;pointer-events:none;z-index:0}
+#home .hbg i{position:absolute;width:62vmax;height:62vmax;border-radius:50%;background:radial-gradient(circle,var(--b) 0%,transparent 62%);will-change:transform;animation:hbl 24s ease-in-out infinite alternate}
+#home .hbg i:nth-child(1){left:-20vmax;top:-26vmax;--b:var(--a1)}
+#home .hbg i:nth-child(2){right:-24vmax;top:6vh;--b:var(--a2);animation-duration:31s;animation-direction:alternate-reverse}
+#home .hbg i:nth-child(3){left:22vw;bottom:-38vmax;--b:var(--a3);animation-duration:37s}
+@keyframes hbl{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(9vmax,6vmax,0) scale(1.2)}}
+#home .hw{position:relative;z-index:1}
+#home .hlg i{background:var(--g1);box-shadow:0 0 14px var(--g1);animation:hdot 2.6s ease-in-out infinite}
+@keyframes hdot{50%{transform:scale(1.5);opacity:.6}}
+#home .hgr small{display:block}
+#home .hgr h1{background:linear-gradient(100deg,#fff 25%,var(--g1) 62%,var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.12em;display:inline-block}
+#home .hq:focus-within{border-color:var(--g1);box-shadow:0 0 0 4px color-mix(in srgb,var(--g1) 18%,transparent),0 18px 50px -20px var(--g1)}
+#home .hqb .p{background:linear-gradient(120deg,var(--g1),var(--g2));color:#0a0e15;font-weight:600}
+/* việc tiếp theo */
+#home .hnx{display:flex;align-items:center;gap:14px;width:100%;box-sizing:border-box;margin-top:12px;padding:13px 18px;border:0;border-radius:18px;cursor:pointer;text-align:left;font:inherit;color:#0a0e15;background:linear-gradient(120deg,var(--g1),var(--g2));position:relative;overflow:hidden;box-shadow:0 14px 40px -18px var(--g1);transition:transform .3s}
+body.gal #home .hnx{border-radius:3px}
+#home .hnx:hover{transform:translateY(-2px)}
+#home .hnx:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.5) 50%,transparent 70%);transform:translateX(-120%);animation:nxs 4.6s ease-in-out infinite}
+#home .hnx small{display:block;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;opacity:.7}
+#home .hnx b{display:block;font-size:16px;font-weight:600;line-height:1.3;margin-top:2px}
+#home .hnx span{flex:1;min-width:0}
+#home .hnx i{font-style:normal;font-size:22px}
+#home .hnx.fin{background:linear-gradient(120deg,#5cf2a8,#7df3ff);cursor:default}
+/* ô số liệu */
+#home .ht{position:relative;overflow:hidden;box-shadow:inset 0 2px 0 var(--tc);transition:transform .25s,border-color .25s,box-shadow .25s}
+#home .ht:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(150px circle at 0 0,color-mix(in srgb,var(--tc) 24%,transparent),transparent 70%)}
+#home .ht:hover{border-color:var(--tc);box-shadow:inset 0 2px 0 var(--tc),0 14px 34px -16px var(--tc)}
+#home .ht>*{position:relative}
+#home .ht circle.f{stroke-dashoffset:var(--o);animation:hring 1.2s cubic-bezier(.2,.85,.2,1) both}
+@keyframes hring{from{stroke-dashoffset:1}}
+#home.on .ht:nth-child(2){animation-delay:.15s}#home.on .ht:nth-child(3){animation-delay:.2s}#home.on .ht:nth-child(4){animation-delay:.25s}#home.on .ht:nth-child(5){animation-delay:.3s}
+/* thẻ */
+#home .hc{position:relative;overflow:hidden;transition:transform .25s,box-shadow .3s}
+#home .hc:before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--ac,linear-gradient(90deg,#7df3ff,#b48cff))}
+#home .hc:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s;background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),var(--sp),transparent 65%)}
+@media (hover:hover){#home .hc:hover:after{opacity:1}#home .hc:hover{box-shadow:0 22px 60px -30px rgba(0,0,0,.8)}}
+#home .hc>*{position:relative;z-index:1}
+#home .c-les{--ac:linear-gradient(90deg,#ffb454,#ff6fa8);background:linear-gradient(135deg,rgba(255,180,84,.14),rgba(255,111,168,.06) 45%,rgba(255,255,255,.05))}
+body.gal #home .c-les{background:linear-gradient(135deg,#fbe6c6,#f5f1ea 58%)}
+#home .c-tsk{--ac:linear-gradient(90deg,#5cf2a8,#7df3ff)}#home .c-voc{--ac:linear-gradient(90deg,#b48cff,#7df3ff)}#home .c-me{--ac:linear-gradient(90deg,#ff8fb6,#ffb454)}#home .c-rec{--ac:linear-gradient(90deg,#7df3ff,#b48cff)}
+#home .c-les .hb button.p{background:linear-gradient(120deg,#ffb454,#ff8fb6);color:#1a1405;font-weight:600;box-shadow:0 10px 26px -12px #ffb454}
+#home .hc .kk span:first-child:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;background:var(--ac);vertical-align:1px}
+#home.on .hc:nth-child(2){animation-delay:.22s}#home.on .hc:nth-child(3){animation-delay:.28s}#home.on .hc:nth-child(4){animation-delay:.34s}#home.on .hc:nth-child(5){animation-delay:.4s}
+#home .tl li{transition:padding .25s}
+@media (hover:hover){#home .tl li:hover{padding-left:6px}}
+#home .tl li.d i{animation:hpop .5s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes hpop{from{transform:scale(.3)}}
+#home .pb b{background:linear-gradient(90deg,#ffb454,#5cf2a8,#7df3ff,#5cf2a8,#ffb454);background-size:300% 100%;animation:hsh 6s linear infinite}
+@keyframes hsh{to{background-position:300% 0}}
+#home .big{background:linear-gradient(100deg,var(--ci),#ff8fb6);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block}
+/* bảng tính năng */
+#home .hfe{margin-top:26px}
+#home .hfe .fh{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+#home .hfe .fh h3{font-family:var(--serif);font-weight:400;font-size:24px;margin:0;flex:none}
+#home .hfe .fh input{flex:1;min-width:200px;font:inherit;font-size:15px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:10px 16px;outline:0}
+body.gal #home .hfe .fh input{border-radius:3px}
+#home .hfe .fh input:focus{border-color:var(--g1)}
+#home .hfe .fh input::placeholder{color:rgba(226,231,250,.5)}
+#home .hfe h4{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:rgba(226,231,250,.6);margin:18px 0 8px;display:flex;align-items:center;gap:8px}
+#home .hfe h4:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gc)}
+#home .fl{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+#home .ft{display:grid;grid-template-columns:38px 1fr;gap:2px 12px;align-items:center;text-align:left;font:inherit;color:#eef1fb;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:11px 13px;cursor:pointer;transition:transform .22s,border-color .22s,background .22s}
+body.gal #home .ft{border-radius:3px}
+#home .ft:hover,#home .ft:focus-visible{transform:translateY(-2px);border-color:var(--gc);background:rgba(255,255,255,.1)}
+#home .ft i{grid-row:span 2;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-style:normal;font-size:17px;color:#0a0e15;background:var(--gc)}
+#home .ft b{font-weight:600;font-size:14.5px;line-height:1.25}
+#home .ft span{font-size:12.5px;line-height:1.35;color:rgba(226,231,250,.66)}
+#home .ft.o{grid-template-columns:38px 1fr}#home .ft.o b{grid-row:span 2;font-weight:500}
+#home .fno{color:rgba(226,231,250,.6);font-size:14px;padding:14px 2px}
+#home .fall{margin-top:14px;font:inherit;font-size:13.5px;color:#eef1fb;background:none;border:1px dashed rgba(255,255,255,.3);border-radius:999px;padding:9px 16px;cursor:pointer}
+#vsw .hbt{background:linear-gradient(120deg,#7df3ff,#b48cff);color:#0a0e15!important;font-weight:700}
+@media (hover:hover) and (min-width:821px){.pbody .card{transition:transform .25s,box-shadow .25s}.pbody .card:hover{transform:translateY(-2px)}}
+@media (max-width:900px){
+  #home .hbg i{width:90vmax;height:90vmax;opacity:.8}
+  #home .hnx{padding:12px 14px;border-radius:14px}#home .hnx b{font-size:15px}
+  #home .fl{grid-template-columns:1fr 1fr}
+  #home .ft{grid-template-columns:1fr;gap:6px;padding:12px}
+  #home .ft i{grid-row:auto;width:34px;height:34px;border-radius:10px}
+  #home .ft.o b{grid-row:auto}
+  #home .hfe .fh h3{font-size:21px;flex-basis:100%}
+}
+@media (prefers-reduced-motion:reduce){#home .hbg i,#home .hnx:before,#home .pb b,#home .hlg i,#home .ht circle.f,#home .tl li.d i{animation:none}}
 </style>
 <script type="importmap">
 {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
@@ -4164,7 +4251,7 @@ const TPL = [["Quyết định", "ghi rõ lựa chọn và vì sao", "Quyết đ
 try { const sv = ls.get("sb_view", "uni"); if (sv === "jour" || sv === "map") setTimeout(() => { if (view === "uni") setView(sv); }, 3400); } catch (e) {}
 
 /* ===== v15 LAB ===== */
-const WN_VER = "20";
+const WN_VER = "21";
 /* ---- đọc tập trung ---- */
 let rdOn = false, rdT = 0;
 function lessonList() { const a = [...(brain.lessons || [])]; if (brain.lesson && !a.some(l => l.date === brain.lesson.date)) a.unshift(brain.lesson); return a.filter(l => l && l.title).sort((x, y) => String(y.date).localeCompare(String(x.date))); }
@@ -4246,7 +4333,8 @@ function wkMount() {
 /* ---- có gì mới ---- */
 function openWN() {
   let el = $("#wn"); if (!el) { el = document.createElement("div"); el.id = "wn"; el.setAttribute("role", "dialog"); document.body.appendChild(el); }
-  const F = [["⌂", "Trang chủ mới", "Mở app là thấy ngay: bài hôm nay, việc cần làm, ô hỏi và ghi vào não, tiến độ hiểu anh. Vũ trụ 3D nằm phía sau.", () => window.openHome && window.openHome()],
+  const F = [["☰", "Tất cả tính năng", "Trang chủ có bảng mọi tính năng kèm mô tả và ô tìm. Nền chuyển màu theo buổi, có nút Việc tiếp theo.", () => { window.openHome && window.openHome(); setTimeout(() => { const x = document.querySelector("#hFe"); if (x) x.scrollIntoView({ behavior: "smooth" }); }, 400); }],
+    ["⌂", "Trang chủ mới", "Mở app là thấy ngay: bài hôm nay, việc cần làm, ô hỏi và ghi vào não, tiến độ hiểu anh. Vũ trụ 3D nằm phía sau.", () => window.openHome && window.openHome()],
     ["◎", "Vòng hôm nay", "Ba vòng ở màn hình chính: checklist, 7 trụ cột, ý đã ghi. Kèm việc nên làm tiếp. Khép đủ ba vòng là xong ngày.", () => { const x = $("#rings"); if (x) x.animate([{ transform: "scale(1)" }, { transform: "scale(1.08)" }, { transform: "scale(1)" }], { duration: 700 }); }],
     ["🪞", "Nếu là tôi", "Não trả lời bằng giọng của anh. Bấm Đúng là tôi hoặc sửa lại để não học giống anh hơn.", () => { setTab("hoi-ho-so"); if (MOB) $("#panel").classList.add("open"); setTimeout(() => { const x = document.querySelector('.akmd [data-m="1"]'); if (x) x.click(); }, 300); }],
     ["🔊", "Giọng đọc tự nhiên", "Chọn giọng Google HD hoặc giọng tốt nhất của máy, chỉnh tốc độ. Đọc đúng % và chữ viết tắt.", () => openVoiceSet()],
@@ -4615,16 +4703,17 @@ document.addEventListener("visibilitychange", () => {
 /* ===== v20 HOME: màn hình chính ===== */
 (function home() {
   const el = document.createElement("div"); el.id = "home"; el.setAttribute("role", "dialog"); el.setAttribute("aria-label", "Trang chủ");
-  el.innerHTML = `<div class="hw"><header class="hh"><div class="hlg"><i></i>Second Brain</div><button type="button" class="hgo" data-h="uni">Vào vũ trụ 3D →</button></header>
+  el.innerHTML = `<div class="hbg" aria-hidden="true"><i></i><i></i><i></i></div><div class="hw"><header class="hh"><div class="hlg"><i></i>Second Brain</div><button type="button" class="hgo" data-h="uni">Vào vũ trụ 3D →</button></header>
     <div class="hgr"><small id="hDate"></small><h1 id="hHi"></h1></div>
     <form class="hq" id="hq" autocomplete="off"><textarea id="hqT" rows="1" aria-label="Hỏi hoặc ghi vào não" placeholder="Hỏi bộ não, hoặc ghi một ý vừa nghĩ ra…"></textarea><div class="hqb"><button type="button" id="hqSave" class="g">Ghi vào não</button><button type="submit" class="p">Hỏi não</button></div></form>
+    <div id="hNx"></div>
     <div class="hst" id="hSt"></div><div class="hg" id="hG"></div>
-    <nav class="hn"><button type="button" data-h="uni">Vũ trụ 3D</button><button type="button" data-h="map">Bản đồ ý</button><button type="button" data-h="jour">Hành trình</button><button type="button" data-h="res">Nghiên cứu &amp; số liệu</button><button type="button" data-h="srs">Ôn tập</button><button type="button" data-h="find">Tìm một ý</button></nav>
+    <section class="hfe" id="hFe" aria-label="Tất cả tính năng"></section>
     <footer class="hf"><label><input type="checkbox" id="hAuto"> Mở app là vào trang này</label><span>Phím H: trang chủ · Esc: đóng</span></footer></div>`;
   document.body.appendChild(el);
   const DOW = ["Chủ nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"];
-  const ring = (c, f) => `<svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" stroke="${c}" opacity=".28"/><circle cx="22" cy="22" r="18" stroke="${c}" pathLength="1" stroke-dasharray="1" stroke-dashoffset="${1 - Math.max(0, Math.min(1, f))}"/></svg>`;
-  const tile = (h, c, f, n, l) => `<button type="button" class="ht" data-h="${h}">${ring(c, f)}<div><div class="n">${n}</div><div class="l">${l}</div></div></button>`;
+  const ring = (c, f) => `<svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="18" stroke="${c}" opacity=".28"/><circle cx="22" cy="22" r="18" stroke="${c}" pathLength="1" class="f" stroke-dasharray="1" style="--o:${1 - Math.max(0, Math.min(1, f))}"/></svg>`;
+  const tile = (h, c, f, n, l) => `<button type="button" class="ht" data-h="${h}" style="--tc:${c}">${ring(c, f)}<div><div class="n">${n}</div><div class="l">${l}</div></div></button>`;
   let sig = "";
   function render(force) {
     const d = vnDate(), now = new Date(), hr = +new Intl.DateTimeFormat("en-GB", { hour: "2-digit", hour12: false, timeZone: "Asia/Ho_Chi_Minh" }).format(now) % 24;
@@ -4632,6 +4721,7 @@ document.addEventListener("visibilitychange", () => {
     const dw = new Date(d + "T12:00:00").getDay();
     $("#hDate").textContent = `${DOW[dw]}, ${fmtD(d)}${T && T.n ? " · Chủ đề: " + T.n : ""}`;
     $("#hHi").textContent = (hr < 11 ? "Chào buổi sáng" : hr < 14 ? "Chào buổi trưa" : hr < 18 ? "Chào buổi chiều" : "Chào buổi tối") + ", anh Tuấn.";
+    el.dataset.tm = hr < 11 ? "am" : hr < 18 ? "pm" : "ev";
     let it = []; try { it = chkItems(d); } catch (e) {}
     const ckD = it.filter(x => x.done).length, ckN = it.length;
     let plD = 0, plN = 7; try { const S = pillarSet(); if (S && S.date === d) { const rd = ls.get("sb_pl", {})[d] || {}; plN = S.items.length || 7; plD = S.items.filter(x => rd[x.pillar]).length; } } catch (e) {}
@@ -4656,12 +4746,77 @@ document.addEventListener("visibilitychange", () => {
     const mc = `<div class="hc c-me hk" data-h="me"><div class="kk"><span>Về anh</span><span>${me.n} điều đã lưu</span></div><div class="big">${Math.round(me.pc * 100)}%</div><div class="pb"><b style="width:${Math.round(me.pc * 100)}%"></b></div><p style="margin-top:10px">${me.q ? `Hôm nay có ${me.q} câu hỏi cho anh, khoảng 2 phút.` : "Hôm nay đã hỏi xong. Anh có thể bổ sung thêm."}</p></div>`;
     const rc = `<div class="hc c-rec"><div class="kk"><span>Ý anh ghi gần đây</span><span>${notes.length} ý trong não</span></div>${rec.length ? `<div class="rc">${rec.map(n => `<a data-h="node:${esc(n.id)}"><span>${esc(String(n.title || n.text || "").slice(0, 140))}</span><small>${fmtD(n.date)}</small></a>`).join("")}</div>` : `<p style="margin-top:8px">Chưa có ý nào. Gõ vào ô phía trên rồi bấm “Ghi vào não”.</p>`}</div>`;
     $("#hG").innerHTML = les + tsk + vc + mc + rc;
+    const nu = it.find(x => !x.done);
+    $("#hNx").innerHTML = nu ? `<button type="button" class="hnx" data-h="today:${esc(nu.go || "#ckCard")}"><span><small>Việc tiếp theo</small><b>${esc(nu.t)}</b></span><i>→</i></button>` : (ckN ? `<div class="hnx fin"><span><small>Hôm nay</small><b>Anh đã xong hết việc trong ngày ✦</b></span></div>` : "");
   }
+  /* ---- v21: bảng tính năng trên trang chủ ---- */
+  const OVS = ".xov.on,#wrap.on,#morn.on,#wn.on,#reader.on,#vset.on,#srs.on";
+  const FE = () => [
+    ["Ghi & hỏi", "#7df3ff", [
+      ["✎", "Ghi một ý", "Lưu ngay một suy nghĩ vào não", () => { el.scrollTo({ top: 0, behavior: "smooth" }); $("#hqT").focus(); }, 1],
+      ["?", "Hỏi bộ não", "Hỏi trên chính những gì anh đã ghi", () => { close(); goTab("hoi-ho-so"); setTimeout(() => { const a = $("#askT"); if (a) a.focus(); }, 420); }],
+      ["🪞", "Nếu là tôi", "Não trả lời như anh sẽ quyết định", "neu la toi"],
+      ["◉", "Về tôi", "Hồ sơ về anh, 3 câu phỏng vấn mỗi ngày", () => window.openAboutMe()]]],
+    ["Học mỗi ngày", "#ffb454", [
+      ["▤", "Bài học hôm nay", "Đọc tập trung trên nền giấy, có giọng đọc", "doc bai hoc tap trung"],
+      ["☑", "Việc hôm nay", "Checklist các việc nhỏ trong ngày", () => goToday("#ckCard")],
+      ["✚", "7 trụ cột", "Bảy bài ngắn cho bảy trụ cột", () => goToday("#plCard")],
+      ["文", "Từ tiếng Việt", "Mỗi ngày một từ đẹp", () => goToday("#vocCard")],
+      ["↻", "Ôn tập", "Thẻ nhớ ngắt quãng, ôn đúng lúc sắp quên", () => openSrs()],
+      ["▶", "Bản tin sáng", "Nghe tóm tắt hôm nay bằng giọng đọc", "nghe ban tin sang"]]],
+    ["Nhìn lại & số liệu", "#5cf2a8", [
+      ["◎", "Tổng kết tuần", "Tuần của anh trong vài trang", "tong ket tuan"],
+      ["◈", "Mục tiêu", "Đặt mục tiêu, não tự gắn ý vào", () => editGoals()],
+      ["💡", "Insight", "Chủ đề đang nổi, ý mồ côi, nhịp ghi", "insight tuan nay"],
+      ["▦", "Lịch thói quen", "Tám tuần gần nhất của anh", "lich thoi quen"],
+      ["⌕", "Nghiên cứu", "Kiến thức đã nạp và radar kỹ năng", () => { close(); goTab("nghien-cuu"); }]]],
+    ["Khám phá & cài đặt", "#b48cff", [
+      ["✦", "Vũ trụ 3D", "Toàn bộ ý của anh thành thiên hà", () => { close(); if (view !== "uni") setView("uni"); }],
+      ["◍", "Bản đồ ý", "Mạng lưới 2D, tìm và phóng to", () => { close(); setView("map"); }],
+      ["⌁", "Hành trình", "Dòng thời gian theo ngày", () => { close(); setView("jour"); }],
+      ["➶", "Bay xuyên thiên hà", "Chuyến bay tự động qua các ý", () => { close(); if (view !== "uni") setView("uni"); startTour(); }],
+      ["🔊", "Giọng đọc", "Chọn giọng và tốc độ đọc", () => openVoiceSet()],
+      ["◐", "Đổi giao diện", "Gallery (kem) hoặc Cổ điển (tối)", "theme"],
+      ["▤", "Giao diện gọn", "Bật hoặc tắt bố cục gọn", "giao dien gon"],
+      ["✧", "Có gì mới", "Các tính năng mới thêm gần đây", () => openWN()]]]
+  ];
+  let FR = [];
+  function feat(q) {
+    const f = fold(q || "").trim(); let all = []; try { all = cmds(); } catch (e) {}
+    FR = []; let h = "", shown = 0; const used = new Set(), hits = [];
+    FE().forEach(([g, gc, list]) => {
+      const tiles = [];
+      list.forEach(([ic, nm, ds, fn, keep]) => {
+        if (typeof fn === "string") { const c = all.find(c => fold(c[2]).includes(fn)); if (!c) return; used.add(c[2]); fn = c[4]; }
+        if (f && !fold(nm + " " + ds + " " + g).includes(f)) return;
+        FR.push({ fn, keep }); const t = `<button type="button" class="ft" style="--gc:${gc}" data-f="${FR.length - 1}"><i>${ic}</i><b>${esc(nm)}</b><span>${esc(ds)}</span></button>`;
+        if (f) hits.push([fold(nm).includes(f) ? 0 : 1, t]); else tiles.push(t);
+      });
+      if (tiles.length) { shown += tiles.length; h += `<h4 style="--gc:${gc}">${esc(g)}</h4><div class="fl" style="--gc:${gc}">${tiles.join("")}</div>`; }
+    });
+    if (f) {
+      if (hits.length) { shown += hits.length; h += `<h4 style="--gc:#7df3ff">Kết quả</h4><div class="fl">${hits.sort((a, b) => a[0] - b[0]).map(x => x[1]).join("")}</div>`; }
+      const ex = all.filter(c => c[2] !== "Trang chủ" && !used.has(c[2]) && fold(c[2] + " " + c[0]).includes(f)).slice(0, 12);
+      if (ex.length) { shown += ex.length; h += `<h4 style="--gc:#eef1fb">Lệnh khác</h4><div class="fl" style="--gc:#eef1fb">${ex.map(c => { FR.push({ fn: c[4] }); return `<button type="button" class="ft o" data-f="${FR.length - 1}"><i>${esc(c[1])}</i><b>${esc(c[2])}</b></button>`; }).join("")}</div>`; }
+      if (!shown) h = `<div class="fno">Không thấy tính năng nào khớp “${esc(q)}”. Anh thử từ khác, hoặc hỏi thẳng bộ não ở ô phía trên.</div>`;
+    } else h += `<button type="button" class="fall" data-h="find">Mở bảng lệnh đầy đủ, tìm cả ý trong não →</button>`;
+    let box = $("#hFl");
+    if (!box) { $("#hFe").innerHTML = `<div class="fh"><h3>Tất cả tính năng</h3><input id="hFq" type="search" autocomplete="off" aria-label="Tìm tính năng" placeholder="Tìm tính năng… ví dụ: ôn tập, giọng đọc, mục tiêu"></div><div id="hFl"></div>`; box = $("#hFl"); const i = $("#hFq"); i.addEventListener("input", () => feat(i.value)); i.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); const b = box.querySelector(".ft"); if (b) b.click(); } }); }
+    box.innerHTML = h;
+  }
+  el.addEventListener("click", ev => {
+    const b = ev.target.closest(".ft[data-f]"); if (!b) return; const it = FR[+b.dataset.f]; if (!it) return;
+    try { SFX.tick(); } catch (e) {}
+    try { it.fn(); } catch (e) { console.warn("home feat", e); }
+    if (!it.keep) setTimeout(() => { if (isOpen() && !document.querySelector(OVS)) close(); }, 320);
+  });
+  if (matchMedia("(hover:hover)").matches) el.addEventListener("pointermove", ev => { const c = ev.target.closest && ev.target.closest(".hc"); if (!c) return; const r0 = c.getBoundingClientRect(); c.style.setProperty("--mx", (ev.clientX - r0.left) + "px"); c.style.setProperty("--my", (ev.clientY - r0.top) + "px"); }, { passive: true });
   let tm = 0;
   const isOpen = () => el.classList.contains("on");
   function open(noAnim) {
     if (isOpen()) return;
     try { render(true); } catch (e) { console.warn("home", e); }
+    try { $("#hFq").value = ""; } catch (e) {} try { feat(""); } catch (e) { console.warn("home feat", e); }
     el.classList.toggle("nr", !!noAnim); el.classList.add("on"); document.body.classList.add("v-home"); el.scrollTop = 0;
     const b = document.querySelector("#vsw .hbt"); if (b) b.classList.add("on");
     clearInterval(tm); tm = setInterval(() => { if (isOpen() && document.activeElement !== $("#hqT")) { try { render(); } catch (e) {} } }, 4000);
